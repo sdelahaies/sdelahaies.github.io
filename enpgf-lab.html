@@ -139,6 +139,7 @@
                 <h6 style="margin-left:30px"><a href="#PI">Pytorch implementation</a></h6>
                 <h6 style="margin-left:30px"><a href="#ENE">EnPGF Network Explorer</a></h6>
                 <h6 style="margin-left:30px"><a href="#AKOTF">Apache kafka online training framework</a></h6>
+                <h6 style="margin-left:30px"><a href="#CODE">Source code</a></h6>
                 <h6 style="margin-left:30px"><a href="#REF">References</a></h6>
 
                 <p></p>
@@ -402,19 +403,371 @@
                   <figcaption   style="text-align:left">Fig 3: EnPGF online learning simulation with 1024 nodes using kafka.</figcaption>
                 </figure>        
                
-              
-                 
+                <h4 id="CODE">Source code</h4>
+                <p>
+                The source code of the pytorch EnPGF filter, the EnPGF lab, and the kafka streaming producer and consumer can be found in the github repository <a style="color:#c4640b" href="https://github.com/sdelahaies/enpgf-lab">enpgf-lab</a>. Running the code assumes that:
+                <li style="margin-left:30px">nvidia drivers are correctly set up on the host system,</li>
+                <li style="margin-left:30px">docker engine is running on the host system to operate kafka. </li>
+                While all the features can run on a properly set up host sytem, we propose a <a style="color:#c4640b" href="#docker">docker install</a> to work in isolation and let the host system untouched.
+                <p></p>
+                <h6>EnPGF pytorch</h6>
+                <p>The pytorch EnPGF code should run directly providing that requirements, essentially pytorch, are satisfied. As in the example above, in a python console import EnPGF_Lab and load a data set using the command </p>
+                <div class="demo-highlight">
+                  <pre>
+<span class="kn">from</span> <span class="nn">EnPGF_lab</span> <span class="kn">import</span> <span class="n">*</span>
+<span class="n">dN</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">nstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dN_load</span><span class="p">(</span><span class="s1">'dN_100000_128.csv.gzip'</span><span class="p">)</span></pre></div> 
+<style id="css-style">pre { line-height: 125%; }
+  td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  .demo-highlight .hll { background-color: #ffffcc }
+  .demo-highlight { background: #f8f8f8; }
+  .demo-highlight .c { color: #008800; font-style: italic } /* Comment */
+  .demo-highlight .err { border: 1px solid #FF0000 } /* Error */
+  .demo-highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+  .demo-highlight .o { color: #666666 } /* Operator */
+  .demo-highlight .ch { color: #008800; font-style: italic } /* Comment.Hashbang */
+  .demo-highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+  .demo-highlight .cp { color: #008800 } /* Comment.Preproc */
+  .demo-highlight .cpf { color: #008800; font-style: italic } /* Comment.PreprocFile */
+  .demo-highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+  .demo-highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+  .demo-highlight .gd { color: #A00000 } /* Generic.Deleted */
+  .demo-highlight .ge { font-style: italic } /* Generic.Emph */
+  .demo-highlight .gr { color: #FF0000 } /* Generic.Error */
+  .demo-highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .demo-highlight .gi { color: #00A000 } /* Generic.Inserted */
+  .demo-highlight .go { color: #888888 } /* Generic.Output */
+  .demo-highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .demo-highlight .gs { font-weight: bold } /* Generic.Strong */
+  .demo-highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .demo-highlight .gt { color: #0044DD } /* Generic.Traceback */
+  .demo-highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+  .demo-highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+  .demo-highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+  .demo-highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+  .demo-highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+  .demo-highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+  .demo-highlight .m { color: #666666 } /* Literal.Number */
+  .demo-highlight .s { color: #BB4444 } /* Literal.String */
+  .demo-highlight .na { color: #BB4444 } /* Name.Attribute */
+  .demo-highlight .nb { color: #AA22FF } /* Name.Builtin */
+  .demo-highlight .nc { color: #0000FF } /* Name.Class */
+  .demo-highlight .no { color: #880000 } /* Name.Constant */
+  .demo-highlight .nd { color: #AA22FF } /* Name.Decorator */
+  .demo-highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .demo-highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .demo-highlight .nf { color: #00A000 } /* Name.Function */
+  .demo-highlight .nl { color: #A0A000 } /* Name.Label */
+  .demo-highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .demo-highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .demo-highlight .nv { color: #B8860B } /* Name.Variable */
+  .demo-highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .demo-highlight .w { color: #bbbbbb } /* Text.Whitespace */
+  .demo-highlight .mb { color: #666666 } /* Literal.Number.Bin */
+  .demo-highlight .mf { color: #666666 } /* Literal.Number.Float */
+  .demo-highlight .mh { color: #666666 } /* Literal.Number.Hex */
+  .demo-highlight .mi { color: #666666 } /* Literal.Number.Integer */
+  .demo-highlight .mo { color: #666666 } /* Literal.Number.Oct */
+  .demo-highlight .sa { color: #BB4444 } /* Literal.String.Affix */
+  .demo-highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+  .demo-highlight .sc { color: #BB4444 } /* Literal.String.Char */
+  .demo-highlight .dl { color: #BB4444 } /* Literal.String.Delimiter */
+  .demo-highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+  .demo-highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+  .demo-highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .demo-highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+  .demo-highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .demo-highlight .sx { color: #008000 } /* Literal.String.Other */
+  .demo-highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+  .demo-highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+  .demo-highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+  .demo-highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+  .demo-highlight .fm { color: #00A000 } /* Name.Function.Magic */
+  .demo-highlight .vc { color: #B8860B } /* Name.Variable.Class */
+  .demo-highlight .vg { color: #B8860B } /* Name.Variable.Global */
+  .demo-highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+  .demo-highlight .vm { color: #B8860B } /* Name.Variable.Magic */
+  .demo-highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+                <p>you then instanciate and train an EnPGF model </p>
+                  <div class="demo-highlight">
+                    <pre>
+<span class="n">enpgf</span><span class="o">=</span><span class="w"> </span><span class="n">EnPGF</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="p">,</span><span class="n">nens</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span><span class="n">dN</span><span class="o">=</span><span class="n">dN</span><span class="p">,</span><span class="n">dt</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span><span class="n">device</span><span class="o">=</span><span class="s1">'cuda'</span><span class="p">)</span>
+<span class="n">enpgf</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+                    </pre>
+                  </div>
+                    <style id="css-style">pre { line-height: 125%; }
+                    td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+                    span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+                    td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+                    span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+                    .demo-highlight .hll { background-color: #ffffcc }
+                    .demo-highlight { background: #f8f8f8; }
+                    .demo-highlight .c { color: #008800; font-style: italic } /* Comment */
+                    .demo-highlight .err { border: 1px solid #FF0000 } /* Error */
+                    .demo-highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+                    .demo-highlight .o { color: #666666 } /* Operator */
+                    .demo-highlight .ch { color: #008800; font-style: italic } /* Comment.Hashbang */
+                    .demo-highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+                    .demo-highlight .cp { color: #008800 } /* Comment.Preproc */
+                    .demo-highlight .cpf { color: #008800; font-style: italic } /* Comment.PreprocFile */
+                    .demo-highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+                    .demo-highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+                    .demo-highlight .gd { color: #A00000 } /* Generic.Deleted */
+                    .demo-highlight .ge { font-style: italic } /* Generic.Emph */
+                    .demo-highlight .gr { color: #FF0000 } /* Generic.Error */
+                    .demo-highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+                    .demo-highlight .gi { color: #00A000 } /* Generic.Inserted */
+                    .demo-highlight .go { color: #888888 } /* Generic.Output */
+                    .demo-highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+                    .demo-highlight .gs { font-weight: bold } /* Generic.Strong */
+                    .demo-highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+                    .demo-highlight .gt { color: #0044DD } /* Generic.Traceback */
+                    .demo-highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+                    .demo-highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+                    .demo-highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+                    .demo-highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+                    .demo-highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+                    .demo-highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+                    .demo-highlight .m { color: #666666 } /* Literal.Number */
+                    .demo-highlight .s { color: #BB4444 } /* Literal.String */
+                    .demo-highlight .na { color: #BB4444 } /* Name.Attribute */
+                    .demo-highlight .nb { color: #AA22FF } /* Name.Builtin */
+                    .demo-highlight .nc { color: #0000FF } /* Name.Class */
+                    .demo-highlight .no { color: #880000 } /* Name.Constant */
+                    .demo-highlight .nd { color: #AA22FF } /* Name.Decorator */
+                    .demo-highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+                    .demo-highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+                    .demo-highlight .nf { color: #00A000 } /* Name.Function */
+                    .demo-highlight .nl { color: #A0A000 } /* Name.Label */
+                    .demo-highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+                    .demo-highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+                    .demo-highlight .nv { color: #B8860B } /* Name.Variable */
+                    .demo-highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+                    .demo-highlight .w { color: #bbbbbb } /* Text.Whitespace */
+                    .demo-highlight .mb { color: #666666 } /* Literal.Number.Bin */
+                    .demo-highlight .mf { color: #666666 } /* Literal.Number.Float */
+                    .demo-highlight .mh { color: #666666 } /* Literal.Number.Hex */
+                    .demo-highlight .mi { color: #666666 } /* Literal.Number.Integer */
+                    .demo-highlight .mo { color: #666666 } /* Literal.Number.Oct */
+                    .demo-highlight .sa { color: #BB4444 } /* Literal.String.Affix */
+                    .demo-highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+                    .demo-highlight .sc { color: #BB4444 } /* Literal.String.Char */
+                    .demo-highlight .dl { color: #BB4444 } /* Literal.String.Delimiter */
+                    .demo-highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+                    .demo-highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+                    .demo-highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+                    .demo-highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+                    .demo-highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+                    .demo-highlight .sx { color: #008000 } /* Literal.String.Other */
+                    .demo-highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+                    .demo-highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+                    .demo-highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+                    .demo-highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+                    .demo-highlight .fm { color: #00A000 } /* Name.Function.Magic */
+                    .demo-highlight .vc { color: #B8860B } /* Name.Variable.Class */
+                    .demo-highlight .vg { color: #B8860B } /* Name.Variable.Global */
+                    .demo-highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+                    .demo-highlight .vm { color: #B8860B } /* Name.Variable.Magic */
+                    .demo-highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+                  
+                  <p>To execute the code on cpu in case nvidia GPU is not available (requires torch cpu only), set   </p>
+                  <div class="demo-highlight">
+                    <pre>
+<span class="n">device</span><span class="o">=</span><span class="s1">'cuda'</span>
+                    </pre>
+                  </div>
+                    <style id="css-style">pre { line-height: 125%; }
+                    td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+                    span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+                    td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+                    span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+                    .demo-highlight .hll { background-color: #ffffcc }
+                    .demo-highlight { background: #f8f8f8; }
+                    .demo-highlight .c { color: #008800; font-style: italic } /* Comment */
+                    .demo-highlight .err { border: 1px solid #FF0000 } /* Error */
+                    .demo-highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+                    .demo-highlight .o { color: #666666 } /* Operator */
+                    .demo-highlight .ch { color: #008800; font-style: italic } /* Comment.Hashbang */
+                    .demo-highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+                    .demo-highlight .cp { color: #008800 } /* Comment.Preproc */
+                    .demo-highlight .cpf { color: #008800; font-style: italic } /* Comment.PreprocFile */
+                    .demo-highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+                    .demo-highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+                    .demo-highlight .gd { color: #A00000 } /* Generic.Deleted */
+                    .demo-highlight .ge { font-style: italic } /* Generic.Emph */
+                    .demo-highlight .gr { color: #FF0000 } /* Generic.Error */
+                    .demo-highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+                    .demo-highlight .gi { color: #00A000 } /* Generic.Inserted */
+                    .demo-highlight .go { color: #888888 } /* Generic.Output */
+                    .demo-highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+                    .demo-highlight .gs { font-weight: bold } /* Generic.Strong */
+                    .demo-highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+                    .demo-highlight .gt { color: #0044DD } /* Generic.Traceback */
+                    .demo-highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+                    .demo-highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+                    .demo-highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+                    .demo-highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+                    .demo-highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+                    .demo-highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+                    .demo-highlight .m { color: #666666 } /* Literal.Number */
+                    .demo-highlight .s { color: #BB4444 } /* Literal.String */
+                    .demo-highlight .na { color: #BB4444 } /* Name.Attribute */
+                    .demo-highlight .nb { color: #AA22FF } /* Name.Builtin */
+                    .demo-highlight .nc { color: #0000FF } /* Name.Class */
+                    .demo-highlight .no { color: #880000 } /* Name.Constant */
+                    .demo-highlight .nd { color: #AA22FF } /* Name.Decorator */
+                    .demo-highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+                    .demo-highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+                    .demo-highlight .nf { color: #00A000 } /* Name.Function */
+                    .demo-highlight .nl { color: #A0A000 } /* Name.Label */
+                    .demo-highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+                    .demo-highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+                    .demo-highlight .nv { color: #B8860B } /* Name.Variable */
+                    .demo-highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+                    .demo-highlight .w { color: #bbbbbb } /* Text.Whitespace */
+                    .demo-highlight .mb { color: #666666 } /* Literal.Number.Bin */
+                    .demo-highlight .mf { color: #666666 } /* Literal.Number.Float */
+                    .demo-highlight .mh { color: #666666 } /* Literal.Number.Hex */
+                    .demo-highlight .mi { color: #666666 } /* Literal.Number.Integer */
+                    .demo-highlight .mo { color: #666666 } /* Literal.Number.Oct */
+                    .demo-highlight .sa { color: #BB4444 } /* Literal.String.Affix */
+                    .demo-highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+                    .demo-highlight .sc { color: #BB4444 } /* Literal.String.Char */
+                    .demo-highlight .dl { color: #BB4444 } /* Literal.String.Delimiter */
+                    .demo-highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+                    .demo-highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+                    .demo-highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+                    .demo-highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+                    .demo-highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+                    .demo-highlight .sx { color: #008000 } /* Literal.String.Other */
+                    .demo-highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+                    .demo-highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+                    .demo-highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+                    .demo-highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+                    .demo-highlight .fm { color: #00A000 } /* Name.Function.Magic */
+                    .demo-highlight .vc { color: #B8860B } /* Name.Variable.Class */
+                    .demo-highlight .vg { color: #B8860B } /* Name.Variable.Global */
+                    .demo-highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+                    .demo-highlight .vm { color: #B8860B } /* Name.Variable.Magic */
+                    .demo-highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+
+                <h6>EnPGF Lab app</h6>
+                <p>The app requires essentially dash components (see requirements) and can be run with </p>
+                <div class="demo-highlight"><pre>
+<span class="n">python</span> <span class="n">app.py</span></pre></div> 
+<style id="css-style">pre { line-height: 125%; }
+  td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+  td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+  .demo-highlight .hll { background-color: #ffffcc }
+  .demo-highlight { background: #f8f8f8; }
+  .demo-highlight .c { color: #008800; font-style: italic } /* Comment */
+  .demo-highlight .err { border: 1px solid #FF0000 } /* Error */
+  .demo-highlight .k { color: #AA22FF; font-weight: bold } /* Keyword */
+  .demo-highlight .o { color: #666666 } /* Operator */
+  .demo-highlight .ch { color: #008800; font-style: italic } /* Comment.Hashbang */
+  .demo-highlight .cm { color: #008800; font-style: italic } /* Comment.Multiline */
+  .demo-highlight .cp { color: #008800 } /* Comment.Preproc */
+  .demo-highlight .cpf { color: #008800; font-style: italic } /* Comment.PreprocFile */
+  .demo-highlight .c1 { color: #008800; font-style: italic } /* Comment.Single */
+  .demo-highlight .cs { color: #008800; font-weight: bold } /* Comment.Special */
+  .demo-highlight .gd { color: #A00000 } /* Generic.Deleted */
+  .demo-highlight .ge { font-style: italic } /* Generic.Emph */
+  .demo-highlight .gr { color: #FF0000 } /* Generic.Error */
+  .demo-highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+  .demo-highlight .gi { color: #00A000 } /* Generic.Inserted */
+  .demo-highlight .go { color: #888888 } /* Generic.Output */
+  .demo-highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+  .demo-highlight .gs { font-weight: bold } /* Generic.Strong */
+  .demo-highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+  .demo-highlight .gt { color: #0044DD } /* Generic.Traceback */
+  .demo-highlight .kc { color: #AA22FF; font-weight: bold } /* Keyword.Constant */
+  .demo-highlight .kd { color: #AA22FF; font-weight: bold } /* Keyword.Declaration */
+  .demo-highlight .kn { color: #AA22FF; font-weight: bold } /* Keyword.Namespace */
+  .demo-highlight .kp { color: #AA22FF } /* Keyword.Pseudo */
+  .demo-highlight .kr { color: #AA22FF; font-weight: bold } /* Keyword.Reserved */
+  .demo-highlight .kt { color: #00BB00; font-weight: bold } /* Keyword.Type */
+  .demo-highlight .m { color: #666666 } /* Literal.Number */
+  .demo-highlight .s { color: #BB4444 } /* Literal.String */
+  .demo-highlight .na { color: #BB4444 } /* Name.Attribute */
+  .demo-highlight .nb { color: #AA22FF } /* Name.Builtin */
+  .demo-highlight .nc { color: #0000FF } /* Name.Class */
+  .demo-highlight .no { color: #880000 } /* Name.Constant */
+  .demo-highlight .nd { color: #AA22FF } /* Name.Decorator */
+  .demo-highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+  .demo-highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+  .demo-highlight .nf { color: #00A000 } /* Name.Function */
+  .demo-highlight .nl { color: #A0A000 } /* Name.Label */
+  .demo-highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+  .demo-highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+  .demo-highlight .nv { color: #B8860B } /* Name.Variable */
+  .demo-highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+  .demo-highlight .w { color: #bbbbbb } /* Text.Whitespace */
+  .demo-highlight .mb { color: #666666 } /* Literal.Number.Bin */
+  .demo-highlight .mf { color: #666666 } /* Literal.Number.Float */
+  .demo-highlight .mh { color: #666666 } /* Literal.Number.Hex */
+  .demo-highlight .mi { color: #666666 } /* Literal.Number.Integer */
+  .demo-highlight .mo { color: #666666 } /* Literal.Number.Oct */
+  .demo-highlight .sa { color: #BB4444 } /* Literal.String.Affix */
+  .demo-highlight .sb { color: #BB4444 } /* Literal.String.Backtick */
+  .demo-highlight .sc { color: #BB4444 } /* Literal.String.Char */
+  .demo-highlight .dl { color: #BB4444 } /* Literal.String.Delimiter */
+  .demo-highlight .sd { color: #BB4444; font-style: italic } /* Literal.String.Doc */
+  .demo-highlight .s2 { color: #BB4444 } /* Literal.String.Double */
+  .demo-highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+  .demo-highlight .sh { color: #BB4444 } /* Literal.String.Heredoc */
+  .demo-highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+  .demo-highlight .sx { color: #008000 } /* Literal.String.Other */
+  .demo-highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+  .demo-highlight .s1 { color: #BB4444 } /* Literal.String.Single */
+  .demo-highlight .ss { color: #B8860B } /* Literal.String.Symbol */
+  .demo-highlight .bp { color: #AA22FF } /* Name.Builtin.Pseudo */
+  .demo-highlight .fm { color: #00A000 } /* Name.Function.Magic */
+  .demo-highlight .vc { color: #B8860B } /* Name.Variable.Class */
+  .demo-highlight .vg { color: #B8860B } /* Name.Variable.Global */
+  .demo-highlight .vi { color: #B8860B } /* Name.Variable.Instance */
+  .demo-highlight .vm { color: #B8860B } /* Name.Variable.Magic */
+  .demo-highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+                <p>it is then available at the address 0.0.0.0:8889 .</p>
+
+                <h6>kafka online training</h6>
+                <p>
+                The online training framework requires a running apache streaming platform. Providing that the requirements are satisfied, the producer <span style="font-family: monospace;font-size: 14px;">producer_spikes.py</span>  and consumer <span style="font-family: monospace;font-size: 14px;">consumer_spikes.py</span> can be excuted on a running kafka server after setting the <span style="font-family: monospace;font-size: 14px;">bootstrap_servers</span> address accordingly.
+                </p>
+
+                <h6 id="docker">docker install</h6>
+                <p>The docker install facilitates the installation of the packages by providing an isolated framework. From a terminal run the commands </p>
+                <div class="demo-highlight">
+                  <pre>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https://github.com/sdelahaies/enpgf_lab.git</span>
+<span class="n">cd</span> <span class="n">enpgf_lab</span>
+<span class="n">docker</span> <span class="n">compose</span> <span class="n">up</span> <span class="n">-d</span></pre></div>
+                <p>    
+                which install and set up and start the following containers:
+                <li style="margin-left:30px">enpgf-lab: a minimal ubuntu 22.04 distribution with nvidia-cuda toolkit and required packages (torch, dash, kafka, ...) which starts the app and make it avalaible at 127.0.0.1:60001. A terminal bash is available by running the command
+                </p>  
+                <div class="demo-highlight">
+                    <pre>
+<span class="n">docker</span> <span class="n">exec</span> <span class="n">-it</span> <span class="n">enpgf-lab</span> <span class="n">/bin/bash</span></pre></div>
+                <p>from which you can start a python or ipython console, or start a jupyter session via the command</p>
+                <div class="demo-highlight">
+                  <pre>
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="n">--ip</span> <span class="n">0.0.0.0</span> <span class="n">--no-browser</span> <span class="n">--allow-root</span></pre></div>
+                <p>available at 127.0.0.1:60000</p>
+                </li> 
+                <li style="margin-left:30px">kafka: a kafka broker which organizes and stores streams of events</li> 
+                <li style="margin-left:30px">kafka-ui: a simple dashboard to monitor the flow of data produced and consumed, available at 127.0.0.1:8080 .</li> 
                 
                 <h4 id="REF">References</h4>
-                <p>
-                The source code of the pytorch EnPGF filter, the EnPGF explorer, and the kafka docker compose file can be found in the github repository <a href="">EnPGF_pytorch</a>.
-                </p>
+              
                 <p id="ref1">[1] N. Santitissadeekorn, S. Delahaies, D.J.B. Lloyd, <a href="https://doi.org/10.1016/j.physd.2023.133676">Identification of an influence network using ensemble-based filtering for Hawkes processes driven by count data</a>, Physica D: Nonlinear Phenomena</p>
                 <p id="ref2">[2] N. Santitissadeekorn, D. J. B. Lloyd, M. B. Short, and S. Delahaies, <a href="https://doi.org/10.1016/j.csda.2019.106850">Approximate filtering of conditional intensity process for poisson count data: Application to urban crime</a>, Computational Statistics & Data Analysis.</p>
                 <p>
                 </p>    
-                
-                        
+                       
               </div>
             </div>
 

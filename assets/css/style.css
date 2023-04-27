@@ -1054,6 +1054,14 @@ span:-ms-tooltip{
   letter-spacing: 0.1px;
   margin-bottom: 0px;
 }
+.card-blog .card-label2 .label-k {
+  color: #1e1f1c;
+  display: inline-block;
+  /*text-transform: uppercase;*/
+  font-size: 0.7rem;
+  letter-spacing: 0.1px;
+  margin-bottom: 0px;
+}
 /*-------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
