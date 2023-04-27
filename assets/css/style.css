@@ -1753,3 +1753,135 @@ img {
   opacity: 1;
   visibility: visible;
 }
+
+
+/******************************/
+/*
+.glowing-text {
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  -webkit-animation: glowing-text 1s ease-in-out infinite alternate;
+  -moz-animation: glowing-text 1s ease-in-out infinite alternate;
+  animation: glowing-text 1s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glowing-text {
+  0% {
+    text-shadow: 0 0 10px #000000, 0 0 20px #fff, 0 0 30px #2e00e6, 0 0 40px #6300e6, 0 0 50px #c300e6, 0 0 60px #00e699, 0 0 70px #e600ca;
+}
+  
+  100% {
+    text-shadow: 0 0 20px #000000, 0 0 30px #ff4da6, 0 0 40px #42112a, 0 0 50px #415466, 0 0 60px #ff4da6, 0 0 70px #244346, 0 0 80px #ff4da6;
+  }
+}
+*/
+
+
+.text-new body{
+  text-align: center;
+  background: #f0f0f5;
+}
+
+.text-new div{
+  display: block;
+  padding: 20px;
+  margin-top: 5%;
+  margin-left: 15%;
+  margin-right: 15%;
+  background: #FFF;
+  border-radius: 80px;
+  border-bottom: 5px solid #CCD1D9;
+}
+
+.text-new p{
+  font-size: 28px;
+   animation: Color 2s linear infinite;
+  -webkit-animation: Color 2s ease-in-out infinite;
+  text-shadow: 1px 1px #99a8c9;
+}
+
+.text-new a{
+  font-size: 20px;
+   animation: Color 2s linear infinite;
+  -webkit-animation: Color 2s ease-in-out infinite;
+  text-shadow: 1px 1px #a39a9a;
+}
+
+@keyframes Color{
+  0%{
+    color:#db7500;
+  }
+  
+  20%{
+    color:#b9631d;
+  }
+  
+  40%{
+    color:#975e2f;
+  }
+  
+  60%{
+    color:#795d44;
+  }
+  
+  80%{
+    color:#3b2f2f;
+  }
+  
+  100%{
+    color:#000000;
+  }
+}
+
+@-moz-keyframes Color{
+  0%{
+    color:#e68200;
+  }
+  
+  20%{
+    color:#997023;
+  }
+  
+  40%{
+    color:#4d4d4d;
+  }
+  
+  60%{
+    color:#272727;
+  }
+  
+  80%{
+    color:#000000;
+  }
+  
+  100%{
+    color:#4d4d4d;
+  }
+}
+
+@-webkit-keyframes Color{
+  0%{
+    color:#b3b3b3;
+  }
+  
+  20%{
+    color:#8a8a8a;
+  }
+  
+  40%{
+    color:#686868;
+  }
+  
+  60%{
+    color:#464646;
+  }
+  
+  80%{
+    color:#202020;
+  }
+  
+  100%{
+    color:#000000;
+  }
+}
