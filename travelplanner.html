@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sylvain Delahaies</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
+  <!--<link href="assets/css/style.css" rel="stylesheet">-->
+  <link href="assets/css/style_blog.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+  <!--<link rel="stylesheet" href="https://gitcdn.link/repo/jwarby/jekyll-pygments-themes/master/github.css" />-->
+
+    <script>
+       window.MathJax = {
+         tags: 'ams',
+         tex: {
+           inlineMath: [ ['$', '$'],['##','##'], ["\\(","\\)"] ],
+           displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+           processEscapes: true,
+           packages: {'[+]': ['noerrors']}
+         },
+         chtml: {
+           displayAlign: "left"
+         },
+         options: {
+           processHtmlClass: 'cmath|dmath',
+           ignoreHtmlClass: 'tex2jax_ignore'
+         },
+         loader: {
+           load: ['input/tex','output/chtml','[tex]/noerrors','ui/lazy']
+         }
+       };
+    </script>
+    <script>
+        MathJax = {
+          loader: {
+            load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
+          },
+          tex: {
+            packages: ['base', 'require']
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js">
+        </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+    </div>
+  </header>
+  <!--
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index_en.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+    </div>
+  </header>
+  -->
+  <!-- End Header -->
+
+
+  <div class="hero hero-single route " style="background-image: url(assets/img/DE_spark.png)">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">Projects & Research</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <main id="main">
+
+    <!-- ======= Blog Single Section ======= -->
+    <section class="blog-wrapper sect-pt4" id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="post-box">
+              <div class="post-thumb">
+                <img src="assets/img/post-1.jpg" class="img-fluid" alt="">
+              </div>
+              <div class="post-meta">
+                <h1 class="article-title" id="1">Travel planner</h1>
+                <ul>
+                  <li>
+                    <span class="bi bi-person"></span>
+                    <a href="#">S. Delahaies</a>
+                  </li>
+                  <li>
+                    <span class="bi bi-tag"></span>
+                    <a href="#">Data Science/Engineering</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="article-text" >
+                <p>
+                  Cet article présente le projet <a style="color:red">fil rouge</a> réalisé dans le cadre de la formation Data Engineer, DataScientest, Bootcamp jan-avr 2023:                
+                </p>
+                <p><b>Itinéraire de vacances</b>: conception, implémentation, déploiement d’une application de recommandation d'itinéraire de vacances.</p>
+                <p>Soutenu en avril 2023 avec mes co-auteurs <a href="">A. Bouttier</a>, H. Elmi Ali, I. Noui.</p>
+
+                <p><b>Le concept :</b> un utilisateur choisit une destination à visiter lors d'un prochain voyage ainsi que la durée du séjour et des centres d'intérêts. l’app lui propose un itinéraire détaillé, ie une séquence de point d'intérêts (POI) organisés dans le temps et l'espace, produit à partir d'un système de recommandation.</p>
+                <p><b>L'objectif :</b> mettre en oeuvre le plus de compétences data Engineer au service d'un projet/service abouti.</p>
+  
+                <h4>Sommaire</h4>
+                <h6 style="margin-left:30px"><a href="#data">Sources et structures de données</a></h6>
+                <h6 style="margin-left:30px"><a href="#arch">Architecture</a></h6>   
+                <h6 style="margin-left:30px"><a href="#recsys">Système de recommandation</a></h6>
+                <h6 style="margin-left:30px"><a href="#code">Code source</a></h6>
+                <h6 style="margin-left:30px"><a href="#ref">Références</a></h6>
+
+                <p></p>
+                <h4 id="data">Sources et structure de données</h4>
+                <h6>DATAtourisme</h6>
+                <p><a href="#A1">DATAtourisme</a> est une plateforme Open Data destinée à faciliter l'accès aux données publiques d'information touristique. Gratuite pour tous les utilisateurs, cette plateforme offre plus de 412 000 données normalisées de type événements et POI touristiques. Les données se limitent néanmoins aux territoires français. </p> 
+
+                <h6>Opentripmap</h6>
+                <p>l'API <a href="#A2">opentripmap</a> offre une base de données à l'échelle du globe accessible gratuitement. Riche, globale, et facile d'utilisation, cette API a été intégré à l'application. Il est ainsi proposé à l'utilisateur de choisir sa source de données, DATAtourisme ou opentripmap. Pour démonstration, l'application tourne avec sa propre clé d'accès à l'API, un utilisateur peut renseigner sa propre clé. 
+                </p>
+                <h6>Trip Advisor</h6>
+                <p>
+                Learder mondial incontestable pour tout ce qui a trait à l'information à caractère touristique sur internet, le site <a href="#A3">Trip advisor</a> offre de multiples sources de données remarquable pour qui sait les recueillir. Plusieurs scripts de <a href="#B6">scraping</a> ont été implémenté pour collecter des données sur les activités conseillées, les notes et avis d'utilisateurs. Attention toutefois à utiliser ces scripts avec prudence pour éviter le bannissement pur et simple de leurs serveurs.
+                </p>
+                <h6>Données annexes</h6>
+                <p>Pour la mise en oeuvre de ce projet d'autres sources de données ont été nécessaires. En premier lieu l'application <a href="#A4">klarna.trips</a> qui a inspiré d'une part la notion itinéraire et d'autre part la conception du planning journalier. Un script de scraping a été réalisé afin de requêter et de recuellir l'itinéraire proposé par l'application à partir d'un choix de destination, d'une période ainsi que de centres d'intérêts.</p>
+                <p>l'API de géocodage <a href="#A5">api-adresse.data.gouv.fr</a> nous a permis de produire une barre de recherche de destination, point de départ pour la production de l'itinéraire.</p> 
+            
+                <p>Plus anecdotique, quoi que ..., l'intégration de l'API <a href="#A6">chatGPT</a> d'OpenAI a été testé pour permettre à l'utilisateur muni d'une clé de se laisser guider par chatGPT.</p>
+                
+                <h6>Base de données</h6>
+                <p>Le choix d'une base de données NoSQL <a href="#A7">MongoDB</a> nous est apparu le plus approprié. Après téléchargement de l'intégralité du contenu de DATAtourisme un traitement a permis de regrouper l'ensemble des données utiles dans un fichier json facilement manipulable, passant d'un volume de données de 9GB à seulement 500MB facilitant la phase de développement. D'autre part, l'ensemble des données issues des requêtes API, du scraping des différentes sources externes, mais également les données utilisateurs, sont stockées sous forme de fichiers json en attente de traitement et d'insertion dans le base de données servant à l'entraînement du système de recommandation. </p>
+
+                <h4 id="arch">Architecture</h4>
+                
+                <h6>Clean architecture</h6>
+                <p>Il a été décidé de structurer le code selon les principes de la clean architecture en adoptant une structure en couches: les couches internes (entities, use cases) ne devant pas être conscientes des couches externes (dags, web). Ces principes garantissent l'indépendance de l'interface utilisateur, de la base de données et de service ou système externe, et permettent à l'application d'évoluer facilement.
+                </p>  
+                <figure>
+                  <img class="w-50" src="assets/img/CA.png">
+                  <figcaption   style="text-align: left">Fig 1: Clean architecture.</figcaption>
+                </figure> 
+
+                <h6>Docker</h6>
+                <p>
+                <a href="B1">Docker</a> est un outil open-source qui permet l'encapsulation d'une application et ses dépendances dans un conteneur isolé, garantissant et facilitant la portabilité. L'ensemble des fonctionnalités et services ont été concues et assemblées sous forme d'une application multi-conteneurs avec Docker. Un fichier <TT>docker-compose.yml</TT> orchestre le fonctionnement des conteneurs, leurs dépendances, leurs connexions et les volumes partagés. Docker organise ainsi les services suivants:
+  
+                <li style="margin-left:30px"><b>mongoDB :</b> en raison de versatilité, de sa flexibilité et de la simplicité d'effectuer des requêtes de géolocation, une base de données NoSQL <a href="#A7">mongoDB</a> a été privilégiée. Un conteneur mongoDB constitue ainsi la base de notre structure de donnée, de plus un conteneur mongo-express offre un UI simple et efficace pour accéder aux données.</li>
+                <li style="margin-left:30px"><b>web :</b> l'interface web est gérée par flask/<a href="#B4">dash</a>. Flask gère les routes API avec comme principe: une route par fonctionnalité. La partie front réalisée avec dash repose en grande partie sur la bibliothèque <a href="#B3">leaflet</a>, elle comprend: une page d'authentification, une page planner qui laisse le choix à l'utilisateur de constituer un panier de POI, un auto-planner qui propose un itinéraire clé en main et enfin un historique.   </li>
+                <li style="margin-left:30px"><b>recsys :</b> en théorie, l'ensemble des opérations relatives à l'entraînement et à la prédiction d'un modèle de recommandation devait faire l'objet d'une API séparée accessible par une des routes de Flask. En pratique, dans le temps qui nous était imparti, seul l'aspect clustering a été traité de manière isolée en raison des conflits générés par les différents paquets requis. Un système de recommandation par filtrage collaboratif neuronal a ainsi été implémenté comme une composante expérimentale du projet, cet aspect à lui seul aurait pu faire l'objet d'un projet à part entière.</li>
+                <li style="margin-left:30px"><b>Airflow :</b> standard de tout projet Data Engineering, l'outil de planification de flux de travail <a href="B2">apache airflow</a> est intégré au projet, orchestrant la planification de nombreuses tâches: pipeline d'entraînement du système de recommandation, automatisation des scripts de scraping, initialisation et mises à jour de la base de données.</li>
+                </p>
+                <div class="demo-highlight-bash"><pre>
+<span></span>
+ docker compose up -d
+ ...
+ airflow-webserver     <span class="m">8080</span>-&gt;<span class="m">8080</span>/tcp       
+ airflow-scheduler     <span class="m">8793</span>-&gt;<span class="m">8793</span>/tcp        
+ web                   <span class="m">8181</span>-&gt;<span class="m">80</span>/tcp          
+ mongo                 <span class="m">27017</span>-&gt;<span class="m">27017</span>/tcp      
+ mongo-express         <span class="m">8111</span>-&gt;<span class="m">8081</span>/tcp
+ clustering_api        <span class="m">8282</span>-&gt;<span class="m">80</span>/tcp          
+                  </pre></div>
+
+                <h4 id="recsys">Système de recommandation</h4>
+                <p>Proposer un itinéraire de vacances, défini pour rappel comme une séquence de POI organisés dans le temps et l'espace, consiste à suivre une recette pour concocter un assortiment d'activités supposé maximiser la satisfaction de l'utilisateur. Au coeur de cette recette, communément dénommé "algorithme" se trouve un <a href="rec"><b>système de recommandation</b></a>. Domaine de recherche et d'application très actif depuis l'avènement du web et rendu incontournable avec le Big Data, les systèmes de recommandation tournent en continu derrière d'innombrables activités numériques. 
+                </p>
+                <p>
+                Dans notre cas, à partir de la destination choisie par l'utilisateur et les types d'activités selectionnés, une requête de géolocation autour de la destination renvoie de quelques dizaines à plusieurs centaines de POIs. A raison de quelques activités réalisables par jour, il est important de pouvoir classer les POI sur une échelle de satisfaction associée à l'utilisateur. Un ensemble de règles vient ensuite affiner ce classement, l'organiser dans le temps et l'espace en respectant des contraintes prédéfinies, pour au final ne retourner que quelques POI sous forme de planning journalier.
+                </p>  
+                <p>
+                Nous avons proposé une approche par filtrage collaboratif neuronal avec <a href="B7">pytorch</a>. Faute de temps et en l'absence de données utilisateurs exploitables, une version expérimentale du système de recommandation a été implémentée dans airflow. La production du planning journalier, utilisant un algorithme de clustering contraint sous scikit-learn, a quant à elle intégré l'application dans la fonctionnalité auto-planner.
+                </p> 
+                
+                <div class="demo-highlight"><pre><span></span>
+<span class="c1"># Neural Collaborative Filtering </span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+
+<span class="k">class</span> <span class="nc">CFNet</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_users</span><span class="p">,</span> <span class="n">n_items</span><span class="p">,</span> <span class="n">emb_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_hidden</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="nb">super</span><span class="p">(</span><span class="n">CFNet</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">user_emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_users</span><span class="p">,</span> <span class="n">emb_size</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">item_emb</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">n_items</span><span class="p">,</span> <span class="n">emb_size</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lin1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">emb_size</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">lin2</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">n_hidden</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">drop1</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">user_emb</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+    <span class="n">V</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">item_emb</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">U</span><span class="p">,</span> <span class="n">V</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">drop1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">lin1</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lin2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">x</span>
+              </pre></div>
+
+                <h4 id="code">Code source</h4>
+                <p>L'ensemble du projet est disponible sur github dans le dépôt <a href="https://github.com/sdelahaies/travelplanner-full">travelplanner-full</a>. Attention, l'ensemble du projet est gourmand en ressource et l'installation peut être relativement longue en fonction de votre configuration et de votre connexion internet.</p>
+                <p>Une version plus légère n'incluant ni airflow, ni pytorch, est déployée sur pythonanywhere au lien suivant <a href="">travelplanner-otm</a>. Le code source est disponible dans le dépôt <a href="https://github.com/sdelahaies/travelplanner-light">travelplanner-light</a>. 
+                <p>
+                Durant la phase de recherche, de nombreux prototypes se sont succédés utilisant streamlit au lieu du couple flask-dash. Un exemple est déployé sur la plateforme streamlit à cette <a href="https://sdelahaies-app-otm-app-3u3ptu.streamlit.app/">adresse</a>, le code source est disponible sur github dans le dépôt <a href="https://github.com/sdelahaies/app_otm">app-otm</a> </p>
+
+                <h4 id="ref">Références</h4>
+                <p><b id="docker">Sources et structures de données, APIs :</b>
+                  <li id="A1" style="margin-left:30px"><a href="https://www.datatourisme.fr/"> DATAtourisme</a></li>
+                  <li id="A2" style="margin-left:30px"><a href="https://opentripmap.io/product"> Opentripmap-api</a></li>
+                  <li id="A3" style="margin-left:30px"><a href="https://www.tripadvisor.fr/"> Trip advisor</a></li>
+                  <li id="A4" style="margin-left:30px"><a href="https://trips.klarna.com/en/"> Klarna.trips</a></li>
+                  <li id="A5" style="margin-left:30px"><a href="https://adresse.data.gouv.fr/api-doc/adresse"> api-adresse.gouv.fr</a></li>
+                  <li id="A6" style="margin-left:30px"><a href="https://openai.com/blog/chatgpt"> OpenAI ChatGPT</a></li>
+                  <li id="A7" style="margin-left:30px"><a href="https://www.mongodb.com"> MongoDB</a></li>
+                </p>
+                <p><b id="docker">Architecture et bibliothèques :</b>
+                  <li id="B1" style="margin-left:30px"><a href="https://docs.docker.com/engine/"> docker engine</a></li>
+                  <li id="B2" style="margin-left:30px"><a href="https://airflow.apache.org/"> airflow</a></li>
+                  <li id="B3" style="margin-left:30px"><a href="https://dash-leaflet-docs.onrender.com/"> leaflet</a></li>
+                  <li id="B4" style="margin-left:30px"><a href="https://dash.plotly.com/"> dash</a></li>
+                  <li id="B5" style="margin-left:30px"><a href="https://streamlit.io/"> streamlit</a></li>
+                  <li id="B6" style="margin-left:30px"><a href="https://www.scrapingbee.com/blog/selenium-python/"> webscraping avec selenium</a></li>
+                  <li id="B7" style="margin-left:30px"><a href="https://pytorch.org/"> pytorch</a></li>
+
+                </p>
+                <p><b id="rec">Système de recommandation :</b> 
+                <li style="margin-left:30px"><a href="https://interstices.info/les-systemes-de-recommandation-categorisation/">les systèmes de recommandation</a></li>
+                <li style="margin-left:30px"><a href="https://developers.google.com/machine-learning/recommendation?hl=fr">cours avancés: systèmes de recommandation</a></li>
+                </p>
+              </div>
+            </div>
+   
+               
+
+
+          </div>
+          <div class="col-md-4">
+            <div class="widget-sidebar">
+              <h5 class="sidebar-title">Recent Post</h5>
+              <div class="sidebar-content">
+                <ul class="list-sidebar">
+                  <li>
+                    <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
+                  </li>
+                  <li>
+                    <a href="#">Travel planner: recommandation d'itinéraire de vacances</a>
+                  </li>
+                  <li>
+                    <a href="#">C-cycle 4DEnsVar pytorch</a>
+                  </li>
+                  <li>
+                    <a href="#">OCNI bot</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="widget-sidebar widget-tags">
+              <h5 class="sidebar-title">Tags</h5>
+              <div class="sidebar-content">
+                <ul>
+                  <li>
+                    <a href="#">python</a>
+                  </li>
+                  <li>
+                    <a href="#">recommandation system</a>
+                  </li>
+                  <li>
+                    <a href="#">neural collaborative filtering</a>
+                  </li>
+                  <li>
+                    <a href="#">dash</a>
+                  </li>
+                  <li>
+                    <a href="#">docker</a>
+                  </li>
+                  <li>
+                    <a href="#">pytorch</a>
+                  </li>
+                  <li>
+                    <a href="#">streamlit</a>
+                  </li>
+                  <li>
+                    <a href="#">mongodb</a>
+                  </li>
+                  <li>
+                    <a href="#">ETL airflow</a>
+                  </li>
+                  <li>
+                    <a href="#">leaflet</a>
+                  </li>
+                  <li>
+                    <a href="#">folium</a>
+                  </li>
+                  <li>
+                    <a href="#">Webscraping</a>
+                  </li>
+                  
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; <strong>2023 S. delahaies</strong></p>
+            <div class="credits">
+              conçu avec <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/"> DevFolio</a>, hébergé par <a href="https://github.com/">Github</a>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/glightbox.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/typed.min.js"></script>
+  <script src="assets/js/ob_mail.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="assets/js/tl_script.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

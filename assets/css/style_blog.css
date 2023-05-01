@@ -455,7 +455,7 @@ a:hover {
 #header {
   transition: all 0.5s;
   z-index: 997;
-  padding: 20px 0;
+  padding: 2px 0;
 }
 
 #header .logo {
@@ -471,13 +471,16 @@ a:hover {
 }
 
 #header .logo img {
-  max-height: 40px;
+  max-height: 60px;
 }
+
 
 #header.header-scrolled {
   background: rgba(0, 0, 0, 0.9);
-  padding: 12px 0;
+  padding: 2px 0;
+  opacity: 0;
 }
+
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -1567,3 +1570,83 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .demo-highlight .vi { color: #B8860B } /* Name.Variable.Instance */
 .demo-highlight .vm { color: #B8860B } /* Name.Variable.Magic */
 .demo-highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+.demo-highlight-bash .hll { background-color: #2C3B41 }
+.demo-highlight-bash { background: #263238; color: #EEFFFF }
+.demo-highlight-bash .c { color: #546E7A; font-style: italic } /* Comment */
+.demo-highlight-bash .err { color: #FF5370 } /* Error */
+.demo-highlight-bash .esc { color: #89DDFF } /* Escape */
+.demo-highlight-bash .g { color: #EEFFFF } /* Generic */
+.demo-highlight-bash .k { color: #BB80B3 } /* Keyword */
+.demo-highlight-bash .l { color: #C3E88D } /* Literal */
+.demo-highlight-bash .n { color: #EEFFFF } /* Name */
+.demo-highlight-bash .o { color: #89DDFF } /* Operator */
+.demo-highlight-bash .p { color: #89DDFF } /* Punctuation */
+.demo-highlight-bash .ch { color: #546E7A; font-style: italic } /* Comment.Hashbang */
+.demo-highlight-bash .cm { color: #546E7A; font-style: italic } /* Comment.Multiline */
+.demo-highlight-bash .cp { color: #546E7A; font-style: italic } /* Comment.Preproc */
+.demo-highlight-bash .cpf { color: #546E7A; font-style: italic } /* Comment.PreprocFile */
+.demo-highlight-bash .c1 { color: #546E7A; font-style: italic } /* Comment.Single */
+.demo-highlight-bash .cs { color: #546E7A; font-style: italic } /* Comment.Special */
+.demo-highlight-bash .gd { color: #FF5370 } /* Generic.Deleted */
+.demo-highlight-bash .ge { color: #89DDFF } /* Generic.Emph */
+.demo-highlight-bash .gr { color: #FF5370 } /* Generic.Error */
+.demo-highlight-bash .gh { color: #C3E88D } /* Generic.Heading */
+.demo-highlight-bash .gi { color: #C3E88D } /* Generic.Inserted */
+.demo-highlight-bash .go { color: #546E7A } /* Generic.Output */
+.demo-highlight-bash .gp { color: #FFCB6B } /* Generic.Prompt */
+.demo-highlight-bash .gs { color: #FF5370 } /* Generic.Strong */
+.demo-highlight-bash .gu { color: #89DDFF } /* Generic.Subheading */
+.demo-highlight-bash .gt { color: #FF5370 } /* Generic.Traceback */
+.demo-highlight-bash .kc { color: #89DDFF } /* Keyword.Constant */
+.demo-highlight-bash .kd { color: #BB80B3 } /* Keyword.Declaration */
+.demo-highlight-bash .kn { color: #89DDFF; font-style: italic } /* Keyword.Namespace */
+.demo-highlight-bash .kp { color: #89DDFF } /* Keyword.Pseudo */
+.demo-highlight-bash .kr { color: #BB80B3 } /* Keyword.Reserved */
+.demo-highlight-bash .kt { color: #BB80B3 } /* Keyword.Type */
+.demo-highlight-bash .ld { color: #C3E88D } /* Literal.Date */
+.demo-highlight-bash .m { color: #F78C6C } /* Literal.Number */
+.demo-highlight-bash .s { color: #C3E88D } /* Literal.String */
+.demo-highlight-bash .na { color: #BB80B3 } /* Name.Attribute */
+.demo-highlight-bash .nb { color: #82AAFF } /* Name.Builtin */
+.demo-highlight-bash .nc { color: #FFCB6B } /* Name.Class */
+.demo-highlight-bash .no { color: #EEFFFF } /* Name.Constant */
+.demo-highlight-bash .nd { color: #82AAFF } /* Name.Decorator */
+.demo-highlight-bash .ni { color: #89DDFF } /* Name.Entity */
+.demo-highlight-bash .ne { color: #FFCB6B } /* Name.Exception */
+.demo-highlight-bash .nf { color: #82AAFF } /* Name.Function */
+.demo-highlight-bash .nl { color: #82AAFF } /* Name.Label */
+.demo-highlight-bash .nn { color: #FFCB6B } /* Name.Namespace */
+.demo-highlight-bash .nx { color: #EEFFFF } /* Name.Other */
+.demo-highlight-bash .py { color: #FFCB6B } /* Name.Property */
+.demo-highlight-bash .nt { color: #FF5370 } /* Name.Tag */
+.demo-highlight-bash .nv { color: #89DDFF } /* Name.Variable */
+.demo-highlight-bash .ow { color: #89DDFF; font-style: italic } /* Operator.Word */
+.demo-highlight-bash .pm { color: #89DDFF } /* Punctuation.Marker */
+.demo-highlight-bash .w { color: #EEFFFF } /* Text.Whitespace */
+.demo-highlight-bash .mb { color: #F78C6C } /* Literal.Number.Bin */
+.demo-highlight-bash .mf { color: #F78C6C } /* Literal.Number.Float */
+.demo-highlight-bash .mh { color: #F78C6C } /* Literal.Number.Hex */
+.demo-highlight-bash .mi { color: #F78C6C } /* Literal.Number.Integer */
+.demo-highlight-bash .mo { color: #F78C6C } /* Literal.Number.Oct */
+.demo-highlight-bash .sa { color: #BB80B3 } /* Literal.String.Affix */
+.demo-highlight-bash .sb { color: #C3E88D } /* Literal.String.Backtick */
+.demo-highlight-bash .sc { color: #C3E88D } /* Literal.String.Char */
+.demo-highlight-bash .dl { color: #EEFFFF } /* Literal.String.Delimiter */
+.demo-highlight-bash .sd { color: #546E7A; font-style: italic } /* Literal.String.Doc */
+.demo-highlight-bash .s2 { color: #C3E88D } /* Literal.String.Double */
+.demo-highlight-bash .se { color: #EEFFFF } /* Literal.String.Escape */
+.demo-highlight-bash .sh { color: #C3E88D } /* Literal.String.Heredoc */
+.demo-highlight-bash .si { color: #89DDFF } /* Literal.String.Interpol */
+.demo-highlight-bash .sx { color: #C3E88D } /* Literal.String.Other */
+.demo-highlight-bash .sr { color: #89DDFF } /* Literal.String.Regex */
+.demo-highlight-bash .s1 { color: #C3E88D } /* Literal.String.Single */
+.demo-highlight-bash .ss { color: #89DDFF } /* Literal.String.Symbol */
+.demo-highlight-bash .bp { color: #89DDFF } /* Name.Builtin.Pseudo */
+.demo-highlight-bash .fm { color: #82AAFF } /* Name.Function.Magic */
+.demo-highlight-bash .vc { color: #89DDFF } /* Name.Variable.Class */
+.demo-highlight-bash .vg { color: #89DDFF } /* Name.Variable.Global */
+.demo-highlight-bash .vi { color: #89DDFF } /* Name.Variable.Instance */
+.demo-highlight-bash .vm { color: #82AAFF } /* Name.Variable.Magic */
+.demo-highlight-bash .il { color: #F78C6C } /* Literal.Number.Integer.Long */
