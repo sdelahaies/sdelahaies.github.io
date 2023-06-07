@@ -1652,6 +1652,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .demo-highlight-bash .il { color: #F78C6C } /* Literal.Number.Integer.Long */
 
 /********************************************/
+
 pre { line-height: 125%; }
 td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
 span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
@@ -1741,3 +1742,4 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .accordion-body {
   background-color:#9597a0;
 }
+
