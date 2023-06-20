@@ -1899,8 +1899,8 @@ img {
 .round {
   position: relative;
   border: 3px solid #fff;
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 100%;
 }
 
@@ -1908,7 +1908,7 @@ span1 {
   z-index: 999;
   height: 3px;
   margin:1px;
-  width: 28px;
+  width: 23px;
   background: #fff;
   transition: 0.4s ease;
 }
