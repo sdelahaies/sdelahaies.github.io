@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sylvain Delahaies</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/css/style_blog.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+
+    <script>
+       window.MathJax = {
+         tags: 'ams',
+         tex: {
+           inlineMath: [ ['$', '$'],['##','##'], ["\\(","\\)"] ],
+           displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+           processEscapes: true,
+           packages: {'[+]': ['noerrors']}
+         },
+         chtml: {
+           displayAlign: "left"
+         },
+         options: {
+           processHtmlClass: 'cmath|dmath',
+           ignoreHtmlClass: 'tex2jax_ignore'
+         },
+         loader: {
+           load: ['input/tex','output/chtml','[tex]/noerrors','ui/lazy']
+         }
+       };
+    </script>
+    <script>
+        MathJax = {
+          loader: {
+            load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
+          },
+          tex: {
+            packages: ['base', 'require']
+          }
+        };
+        </script>
+        <script type="text/javascript" id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js">
+        </script>
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+ 
+
+    </div>
+  </header><!-- End Header -->
+
+
+  <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">Projects & Research</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <main id="main">
+
+    <!-- ======= Blog Single Section ======= -->
+    <section class="blog-wrapper sect-pt4" id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="post-box">
+              <div class="post-meta">
+                <h1 class="article-title" id="1">Object Localization in Space: empowering AI to Safeguard Our Cosmic Explorations... kinda</h1>
+                <ul>
+                  <li>
+                    <span class="bi bi-person"></span>
+                    <a href="#">S. Delahaies</a>
+                  </li>
+                  <li>
+                    <span class="bi bi-tag"></span>
+                    <a href="#">Data Science/Engineering</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="article-text" >
+                <p>
+                In this article, we will embark on an interplanetary journey into the world of object localization using Deep Learning. Object localization is computer vision task that involves identifying and localizing objects within an image or video. Convolutional Neural Networks (CNN) have played a significant role in advancing object detection algorithms by enabling accurate and efficient detection of objects in real-time.
+              </p> 
+                <p>As young AIpprentices we will delve into the fundamental concepts of object localization and explore a practical implementation using tensorflow to train a model capable of identifying and pinpointing objects of interest within complex space imagery. Then embracing the power of tranfer learning we will fine-tune master pre-trained models and achieve remarkable accuracy and efficiency in detecting and localizing objects such as starships, planets, and other celestial elements.  
+                </p>
+                <p>May the farce be with us!</p>
+
+
+                <!--<iframe src="./test.html" style="width:100%;" height="400"></iframe>-->
+
+
+                <h4>Content</h4>
+                <h6 style="margin-left:30px"><a href="#SQ1">Episode I: The Tensor Force Awakens</a></h6>
+                <h6 style="margin-left:30px"><a href="#SQ2">Episode II: The Attack of the YOLOv5</a></h6>
+                <h6 style="margin-left:30px"><a href="#SQ3">Episode III: The Revenge of the Transformers</a></h6>
+                <h6 style="margin-left:30px"><a href="#SC">Source Code</a></h6>
+                <p> </p>
+
+                <h4 id="SQ1">Episode I: The Tensor Force Awakens</h4>
+                <p>
+                This first approach is based on the free coursera project <a href="https://www.coursera.org/learn/object-localization-tensorflow" style="color:rgb(177, 84, 7)">Object Localization with Tensorflow</a> which provides a very nice introduction to many practical aspects of tensorflow and image processing using the library pillow. Here we briefly review some key points of the implementation, namely the dataset creation, the model definition and training. 
+                </p>     
+                <h6>Create a dataset</h6>
+                <p>Our dataset is made of images displaying cartoon planets or objects superimposed over a random celestial background, together with labels corresponding to the class of the object and a bounding box. We consider 12 different objects, class_id = 0..11, and a square bounding box defined by its upper left corner (x,y) and edge length h: </p>
+                <p style="margin-left:30px">
+                image: <img style = "width: 50px" src="https://raw.githubusercontent.com/sdelahaies/planets/main/data/saturn.png"> + <img style = "width: 50px" src="assets/img/bg.png">
+                </p>
+                <p style="margin-left:30px">
+                  label: [class_id,x,y,h]
+                </p>
+                We are therefore considering a supervised learning problem where the data can be displayed as in picture below. During training the GPU is fed using a DataLoader which shuffle and batch the data appropriately.
+                <figure style ="margin-left:30px" >
+                    <img src="assets/img/earth.png">
+                    <figcaption   style="text-align: left">Fig 1: image + labels</figcaption>
+                </figure> 
+                
+                <h6>Convolutional Neural Network</h6>
+                <p>Convolutional Neural Networks (CNNs) have revolutionized the field of computer vision, allowing machines to perceive and understand images with remarkable accuracy. Inspired by the visual cortex of living organisms, CNNs excel at learning hierarchical representations of visual data through convolutional and pooling layers. These layers extract local features, capture spatial relationships, and progressively aggregate information to form a rich understanding of the input.</p>
+                
+                <p>Here we consider the following VGG like architecture with batch normalization:</p>
+                <div class="demo-highlight"><pre><span></span><span class="c1"># Define the input layer</span>
+<span class="n">input_</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">im_size</span><span class="p">,</span> <span class="n">im_size</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">'image'</span><span class="p">)</span>
+
+<span class="c1"># Start building the model architecture</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">input_</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="n">n_filters</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="n">i</span><span class="p">)</span>  <span class="c1"># Calculate the number of filters for each convolutional layer</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">Conv2D</span><span class="p">(</span><span class="n">n_filters</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Add a convolutional layer with ReLU activation</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">BatchNormalization</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Add batch normalization to normalize the activations</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">MaxPool2D</span><span class="p">(</span><span class="mi">2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Add a max pooling layer with pool size of 2x2</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">Flatten</span><span class="p">()(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Flatten the output from the convolutional layers</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'relu'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Add a dense layer with ReLU activation</span>
+<span class="n">class_out</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="n">n_objects</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">'softmax'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'class_out'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output layer for class prediction</span>
+<span class="n">box_out</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'box_out'</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># Output layer for bounding box prediction</span>
+
+<span class="c1"># Create the model with input and output layers</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">keras</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">(</span><span class="n">input_</span><span class="p">,</span> <span class="p">[</span><span class="n">class_out</span><span class="p">,</span> <span class="n">box_out</span><span class="p">])</span>
+</pre></div>
+                <p>Note the two outputs: class_out to perform the object classification, box_out to handle the bounding box.</p>
+                    
+                <h6>Training</h6>  
+
+                <p>The training loop combines essential techniques for optimal performance. We use categorical cross-entropy as the loss function for multi-class classification and IoU as the metric to evaluate bounding box predictions. 
+                </p>
+                <p>
+                A learning rate scheduler dynamically adjusts the learning rate, while early stopping prevents overfitting. TensorBoard support enables visualizing and monitoring training progress. Together, these techniques form a powerful framework for efficient and effective object detection training.
+              </p>
+                <figure style ="margin-left:30px" >
+                  <img  class="w-75" src="assets/img/loss.png">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 2: training</figcaption>
+                </figure> 
+                After training the model predicts the object class and bounding box.
+                <figure style ="margin-left:30px" >
+                  <img  style ="width:256px"  src="assets/img/out1.png">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 3: prediction</figcaption>
+                </figure> 
+                
+                <h4 id="SQ2">Episode II: The Attack of the YOLOv5</h4>
+                <p>In this chapter we will use transfer learning to use the power of YOLOv5, a state-of-the-art object detection model known for its speed and accuracy.</p> 
+                
+                <p>
+                Built upon the You Only Look Once (YOLO) concept, YOLOv5 introduces a streamlined architecture consisting of a <span stype="text-color:blue" title=" The backbone network is the main component of a convolutional neural network (CNN) architecture. It consists of a series of convolutional layers that extract hierarchical features from the input data. The backbone network serves as the foundation for higher-level tasks such as object detection, segmentation, or classification."><a style ="color:#238b69" >backbone network</a></span>, <span title="The neck network is an intermediate module in an object detection pipeline that connects the backbone network to the detection head. It typically consists of additional convolutional layers or feature fusion techniques to enhance feature representation and enable multi-scale feature integration.">        
+                  <a style ="color:#238b69" >neck network</a></span>, and <span title="The detection head refers to the final component of an object detection model that is responsible for generating bounding box predictions and class probabilities for objects present in an image. It is typically connected to the output of the backbone network or the neck network in the detection pipeline."><a style ="color:#238b69">detection head</a></span>. 
+                </p>
+                <p>
+                It is trained on large-scale datasets like COCO and utilizes <span title="Anchor boxes are an integral part of modern object detection models. They are predefined bounding boxes of different sizes and aspect ratios that act as reference templates for detecting objects of varying scales and shapes."><a style ="color:#238b69" >anchor boxes</a></span> for bounding box predictions. YOLOv5 leverages advanced techniques such as <span title="Multi-scale training involves training a neural network using images of different scales or resolutions. It helps improve the model's ability to detect objects at various sizes by exposing it to a more diverse range of image scales during training."><a style ="color:#238b69" >multi-scale training</a></span>, data augmentation, and 
+                <span title="Focal loss is a loss function used in object detection tasks, specifically designed to address the class imbalance problem, where the number of background samples significantly outweighs the number of foreground (object) samples. Focal loss assigns higher weights to hard-to-classify examples, thereby focusing more on challenging samples during training."><a style ="color:#238b69" >focal loss</a></span> to improve object detection performance. 
+              </p>
+                <p>
+                With its efficient architecture and comprehensive training pipeline, YOLOv5 has become a popular choice for real-time object detection tasks.
+                </p>
+                <p>
+                The following is based on the article <a href="https://kikaben.com/yolov5-transfer-learning-dogs-cats/" style="color:rgb(177, 84, 7)">Transfer Learning In Simple Steps Without Losing Your Mind</a>. Except for the installation process for which you choose to work with a docker container, most of the work consists in preparing the data for the training. The chapter will be decomposed into data preprocessing, YOLOv5 install and training.
+              </p>
+              <h6>Data preprocessing</h6>  
+              The expected folder structure for YOLOv5 includes images and labels organized in the following format:
+              <p></p>
+              <div class="demo-highlight"><pre><span></span>data/
+├──<span class="w"> </span>images
+│<span class="w">&nbsp;&nbsp; </span>├──<span class="w"> </span>test
+│<span class="w">&nbsp;&nbsp; </span>├──<span class="w"> </span>train
+│<span class="w">&nbsp;&nbsp; </span>└──<span class="w"> </span>val
+└──<span class="w"> </span>labels
+<span class="w">    </span>├──<span class="w"> </span>test
+<span class="w">    </span>├──<span class="w"> </span>train
+<span class="w">    </span>└──<span class="w"> </span>val
+</pre></div>
+              where to an image file, say "0025.png", corresponds a label file "0025.txt" contains the text data
+              <p></p>
+              <div class="demo-highlight"><pre>5 0.25 0.63 0.40 0.37</pre></div>
+              <p>
+              corresponding to the class id, 5 here, and the characteristics of the bounding box, here (0.25,0.63) for its center coordinates and (0.40,0.37) for its width and height. Please refer to the notebook available in the source code section for the scripts to generate this file structure.
+              </p>
+              <p>
+              The YOLOv5 training script also requires a configuration yaml file which in our case in named spacequest.yaml and contains the following information
+              <div class="demo-highlight"><pre><span></span><span class="c1"># Dataset paths relative to the yolov5 folder</span>
+<span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AIpprenticeChronicles/EpisodeII/data/images/train</span>
+<span class="nt">val</span><span class="p">:</span><span class="w">   </span><span class="l l-Scalar l-Scalar-Plain">AIpprenticeChronicles/EpisodeII/data/images/val</span>
+<span class="nt">test</span><span class="p">:</span><span class="w">  </span><span class="l l-Scalar l-Scalar-Plain">AIpprenticeChronicles/EpisodeII/data/images/test</span>
+
+<span class="c1"># Number of classes</span>
+<span class="nt">nc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">12</span>
+
+<span class="c1"># Class names ...</span>
+<span class="nt">names</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">'Sun'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Earth'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Mars'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Venus'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Jupyter'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Mercury'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Saturn'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Neptune'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Uranus'</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">'Asteroid'</span><span class="p p-Indicator">,</span><span class="s">'Black</span><span class="nv"> </span><span class="s">Hole'</span><span class="p p-Indicator">,</span><span class="s">'Star</span><span class="nv"> </span><span class="s">Destroyer'</span><span class="p p-Indicator">]</span>
+
+</pre></div>
+              </p>
+              <p></p>
+              <h6>YOLOv5 install</h6>  
+              here we choose to work with YOLOv5 within a docker container, to pull the image and start a container use the following bash command from the folder containing the folder structure and yaml file described above
+              <div class="demo-highlight"><pre>
+
+<span></span><span class="l l-Scalar l-Scalar-Plain">t=ultralytics/yolov5:latest &amp;&amp; \</span>
+<span class="l l-Scalar l-Scalar-Plain">docker pull $t &amp;&amp; \</span>
+<span class="l l-Scalar l-Scalar-Plain">docker run -it --ipc=host --gpus all -p 8888:8888 -v $PWD:/usr/src/app $t</span>
+<span class="w"></span></pre></div>
+
+              <p>If the image has already been pulled the container can be launched using the command </p>
+<div class="demo-highlight"><pre>
+<span class="l l-Scalar l-Scalar-Plain">docker run -it --ipc=host --gpus all -p 8880:8888 -v $PWD:/usr/src/app ultralytics/yolov5:latest</span>
+
+</pre></div>
+              <p>From the container prompt jupyter can be started using the command</p>
+              <div class="demo-highlight"><pre>
+<span></span>jupyter<span class="w"> </span>notebook<span class="w"> </span>--ip<span class="w"> </span><span class="m"></span>0.0.0.0<span class="w"> </span>--no-browser<span class="w"> </span>--allow-root<span class="w"> </span>--port=8888</pre></div>
+              <p>Once completed you should have access to a notebook with YOLOv5 and full GPU support.</p>
+              <h6>training and prediction</h6>  
+               Here we will use the smallest YOLOv5 model yolov5s and we will freeze the backbone, responsible for the features extraction, and only train the detection head. Inspecting the network architecture, given in the file /usr/src/app/models/yolov5s.yaml in the container, reveals that the backbone network corresponds to the ten fist layers. Given this information training YOLOv5 only amounts to running the following command from the jupyter notebook
+               <div class="demo-highlight"><pre>
+
+<span></span>!python<span class="w"> </span>yolov5/train.py<span class="w"> </span>--data<span class="w"> </span>spacequest.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--epochs<span class="w"> </span><span class="m">100</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">4</span><span class="w"> </span>--freeze<span class="w"> </span><span class="m">10</span>
+               </pre></div> 
+               <p>Training can be monitored using tensorboard available in the docker image. Last and best model weights are stored to be used in prediction mode. Generating an example image the a detection prediction can be performed using the command</p>
+               <div class="demo-highlight"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">!python /usr/src/app/detect.py --data spacequest.yaml --weights /usr/src/app/runs/train/exp/weights/best.pt --source example.png</span>
+               </pre></div>
+               <p>Here we test on an example image with and and without fine-tuning: on the first image before fine-tuning YOLOv5 detect the cartoon planet but classifies it as a stop sign, on the second image after fine-tuning YOLOv5 correctly classify the planet as Mars.</p>
+                <figure style ="margin-left:30px" >
+                  <img  style ="width:256px"  src="assets/img/before.jpg">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 4: YOLO before fine-tuning</figcaption>
+                </figure> 
+                <figure style ="margin-left:30px" >
+                  <img  style ="width:256px"  src="assets/img/after.jpg">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 5: YOLO after fine-tuning</figcaption>
+                </figure> 
+
+
+                <h4 id="SQ3">Episode III: The Revenge of the Transformers</h4>
+                <p>In this last section we will again use transfer learning with a transformer model. Transformers have revolutionized the field of natural language processing (NLP) and have found their way into various applications, including object detection.</p>
+                
+                <p>Following the object detection tutorial at huggingface, we use the Detection Transformer (DETR) model. DETR is a state-of-the-art object detection model that combines the power of transformers with the task of object detection It consists of two main components: a CNN backbone and a transformer-based detection head. The backbone CNN extracts image features, which are then passed to the transformer-based detection head.</p>
+              
+                <p>As in the previous section, most of the work here consists in prepraring the dataset to fit the model requirements and then follow the huggingface transformer <a href="https://huggingface.co/docs/transformers/tasks/object_detection" style="color:rgb(177, 84, 7)">tutorial</a> to complete the process. Specifically, we use the pre-trained model facebook/detr-resnet-50 available at huggignface hub. The model was train on the COCO 2017 object detection dataset and we need to process our data to follow the COCO format to fine-tune the model.</p>
+                
+                <figure style ="margin-left:30px" >
+                  <img  style ="width:256px"  src="assets/img/detr_before.png">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 6: DETR before fine-tuning</figcaption>
+                </figure> 
+
+                <figure style ="margin-left:30px" >
+                  <img  style ="width:256px"  src="assets/img/detr_after.png">
+                  <figcaption   style="text-align: left;margin-left:30px">Fig 7: DETR after fine-tuning</figcaption>
+                </figure> 
+
+
+                <h4 id="SC">Source Code</h4>
+                Notebooks for the three episodes can be found in the github repository <a href ="https://github.com/sdelahaies/AIpprenticeChronicles" style="color:rgb(177, 84, 7)">AIpprenticeChronicles</a>.
+
+              </div>
+            </div>
+
+
+
+
+          </div>
+          <div class="col-md-4">
+
+  
+
+            <div class="widget-sidebar">
+              <h5 class="sidebar-title">Recent Post</h5>
+              <div class="sidebar-content">
+                <ul class="list-sidebar">
+                  <li>
+                    <a href="#">Object Localization in Space... kinda
+                  </li>  
+                  <li>
+                    <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career before it even started? TAKE 2
+                  </li>  
+                  <li>
+                    <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before it even started?
+                  </li>    
+                  
+                  <li>
+                    <a href="#">Online EnPGF training for temporal point processes</a>
+                  </li>
+                  <li>
+                    <a href="travelplanner.html">Travel planner</a>
+                  </li>
+                  <!--
+                  <li>
+                    <a href="#">4DEnsVar</a>
+                  </li>
+                  <li>
+                    <a href="#">OCNI bot</a>
+                  </li>
+                  -->
+                </ul>
+              </div>
+            </div>
+
+            <div class="widget-sidebar widget-tags">
+              <h5 class="sidebar-title">Tags</h5>
+              <div class="sidebar-content">
+                <ul>
+                  <li>
+                    <a href="#">CNN</a>
+                  </li>
+                  <li>
+                    <a href="#">YOLOv5</a>
+                  </li>
+                  <li>
+                    <a href="#">pytorch</a>
+                  </li>
+                  <li>
+                    <a href="#">tensorflow</a>
+                  </li>
+                  <li>
+                    <a href="#">docker</a>
+                  </li>
+                  <li>
+                    <a href="#">Object detection</a>
+                  </li>
+                  <li>
+                    <a href="#">tensorboard</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; <strong>2023 S. delahaies</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/glightbox.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/typed.min.js"></script>
+  <script src="assets/js/ob_mail.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="assets/js/tl_script.js"></script>
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

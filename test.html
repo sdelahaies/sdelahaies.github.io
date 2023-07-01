@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+           
+           
+           <!--<iframe src="//fiddle.jshell.net/4zozu6yt/show/light/" sandbox="allow-forms allow-scripts allow-same-origin allow-top-navigation-by-user-activation allow-downloads allow-modals allow-popups" allow="midi; geolocation; microphone; camera; display-capture; encrypted-media;" frameborder="0">-->
+              <head>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                <title>Star Wars crawl HTML CSS</title>
+                <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+                <meta name="robots" content="noindex, nofollow">
+                <meta name="googlebot" content="noindex, nofollow">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+              
+              
+               <!-- <script type="text/javascript" src="/js/lib/dummy.js"></script>-->
+              
+                  <!--<link rel="stylesheet" type="text/css" href="/css/result-light.css">-->
+              
+              
+                <style id="compiled-css" type="text/css">
+                  html,
+              body {
+                  width: 100%;
+                  height: 100%;
+                  background: black;
+                  margin: 0;
+                  overflow: hidden; /* Evite la scrollbar */
+                
+                  /* Center items */
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+              }
+              
+              .a-long-time-ago {
+                  /* cosmétique */
+                  font-size: 32px;
+                  color: #4bd5ee;
+                  /* Animation */
+                  /* Apparition et disparition progressive */
+                  opacity: 0;
+                  /*animation: infinite;*/
+                  animation-delay: 1s;
+                  animation-duration: 2s;
+                  animation-name: a-long-time-ago;
+                  animation-timing-function: ease-out;
+              }
+              
+              @keyframes a-long-time-ago {
+                  0% {
+                      opacity: 0;
+                  }
+              
+                  20% {
+                      opacity: 1;
+                  }
+              
+                  80% {
+                      opacity: 1;
+                  }
+              
+                  100% {
+                      opacity: 0;
+                  }
+              }
+              
+              .crawl {
+                  /* centrage de l'élément' */
+                  position: absolute;
+                  top: 45%;
+                  left: 50%;
+                  width: 800px;
+                  margin: 0 0 0 -400px;
+                  top: auto;
+                  bottom: 0;
+                  height: 50em;
+                  /* cosmétique */
+                  color: #ffff66;    
+                  font-size: 64px;
+                  text-align: center;
+                  /* Applique la transformation  */
+                  transform-origin: center bottom;
+                  transform: perspective(300px) rotateX(25deg);
+              }
+              
+              .crawl > div {
+                  /* positionne la div en bas de l'écran (non visible) */
+                  /* l'animation la fait remonter progressivement */
+                  position: absolute;
+                  top: 100%; 
+                  animation: infinite;
+                  animation-delay: 3s; /* Démarre l'animation après la première */
+                  animation-duration: 30s;
+                  animation-name: crawl;
+                  animation-timing-function: linear;
+              }
+              
+              @keyframes crawl {
+                  0% {
+                      top: 100%;
+                      opacity: 1;
+                  }
+              
+                  80% {
+                      opacity: 1; /* disparition progressive à la fin */
+                  }
+              
+                  100% {
+                      top: 0;
+                      opacity: 0;
+                  }
+              }
+              
+                  /* EOS */
+                </style>
+              
+                <script id="insert"></script>
+              
+              </head>
+              <body>
+                      <div class="a-long-time-ago">
+                        A long time ago in a digital galaxy far, <br> far away...
+                  </div>
+              
+                  <div class="crawl">
+                      <div>
+                          <p>
+                            amidst the cosmic tapestry of code and algorithms, a young AIpprentice embarked on an extraordinary quest. Harnessing the force of artificial intelligence, this burgeoning intellect set out to master the mysteries of object localization in the vast expanse of space.
+                          </p>
+                          <p>
+                            Inspired by the tales of the Jedi, the AIpprentice sought to unlock the secrets of the universe, training neural networks and delving into deep learning frameworks like a Jedi delves into the mysteries of the Force.
+                          </p>
+                          <p>
+                            In this trilogy of episodes, our AIpprentice's odyssey through the realms of deep learning and AI takes flight. Guided by the teachings of the masters, each episode unveils a new chapter in the AIpprentice's journey.
+                          </p>
+                          <p>
+                            Episode I illuminates the path as our AIpprentice wields the power of TensorFlow, crafting a self-made object detection code that gives birth to a new era of intelligent space exploration.
+                          </p>
+                          <p>In Episode II, a revelation transpires as the AIpprentice delves into the realm of transfer learning, uncovering the transformative capabilities of YOLOv5.
+                          </p>
+                          <p>Lastly, Episode III unveils a daring experiment where the AIpprentice embraces the realm of reinforcement learning, piloting a starfighter through perilous skies, evading the whimsical onslaught of cartoon asteroids and planets using the enigmatic DQN algorithm.
+                          </p>
+                          <p>
+                            As our AIpprentice confronts each challenge, the destiny of object localization in the cosmos hangs in the balance...
+                          </p>  
+                          <p>
+                            May the farce be with him!
+                          </p>  
+                          
+                      </div>
+                  </div>
+              
+                  <script type="text/javascript">//<![CDATA[
+              
+              
+              
+              
+              
+                //]]></script>
+              
+                <script>
+                  // tell the embed parent frame the height of the content
+                  if (window.parent && window.parent.parent){
+                    window.parent.parent.postMessage(["resultsFrame", {
+                      height: document.body.getBoundingClientRect().height,
+                      slug: "4zozu6yt"
+                    }], "*")
+                  }
+              
+                  // always overwrite window.name, in case users try to set it manually
+                  window.name = "result"
+                </script>
+              
+              
+              
+              
+              </body>
+           
+              </html>
