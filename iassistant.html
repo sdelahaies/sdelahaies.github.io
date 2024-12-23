@@ -2,19 +2,19 @@
 <html lang="fr">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Sylvain Delahaies</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style_blog.css" rel="stylesheet">
-  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sylvain Delahaies</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/style_blog.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
 
 
 
@@ -22,55 +22,58 @@
 
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
-    </div>
-  </header><!-- End Header -->
-
-
-  <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
-    <div class="overlay-mf"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <h2 class="hero-title mb-4">Projects & Research</h2>
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
         </div>
-      </div>
+    </header><!-- End Header -->
+
+
+    <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
+        <div class="overlay-mf"></div>
+        <div class="hero-content display-table">
+            <div class="table-cell">
+                <div class="container">
+                    <h2 class="hero-title mb-4">Projects & Research</h2>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 
-  <main id="main">
+    <main id="main">
 
-    <!-- ======= Blog Single Section ======= -->
-    <section class="blog-wrapper sect-pt4" id="blog">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8">
-            <div class="post-box">
-              <div class="post-meta">
-                <h1 class="article-title" id="1">IAssistant: A Versatile AI Voice Assistant for Developers and Power Users</h1>
-                <ul>
-                  <li>
-                    <span class="bi bi-person"></span>
-                    <a href="#">S. Delahaies</a>
-                  </li>
-                  <li>
-                    <span class="bi bi-tag"></span>
-                    <a href="#">Data Science/Engineering</a>
-                  </li>
-                </ul>
-              </div>
-              <div className="article-text">
+        <!-- ======= Blog Single Section ======= -->
+        <section class="blog-wrapper sect-pt4" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="post-box">
+                            <div class="post-meta">
+                                <h1 class="article-title" id="1">IAssistant: Using AI to Solve Real-World Problems</h1>
+                                <ul>
+                                    <li>
+                                        <span class="bi bi-person"></span>
+                                        <a href="#">S. Delahaies</a>
+                                    </li>
+                                    <li>
+                                        <span class="bi bi-tag"></span>
+                                        <a href="#">Data Science/Engineering</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- <div className="article-text">
                 <p>
                   Artificial Intelligence (AI) continues to transform how we interact with technology. 
                   Voice assistants, in particular, offer a natural way to engage with complex systems. 
                   Today, I’m excited to share <strong>IAssistant</strong>, an AI voice assistant I developed by adapting and extending a powerful open-source GitHub repository. 
                   Designed to be highly customizable, <strong>IAssistant</strong> allows users to tailor its capabilities to their needs, all while providing a user-friendly GTK interface.
                 </p>
-          
+                <figure>
+                    <img class="w-100" src="assets/img/voice.jpg">
+                  </figure> 
+
                 <h2>Key Features of IAssistant</h2>
                 <ul>
                   <li><strong>Clipboard Integration:</strong> Analyze text or images copied to your clipboard and respond to queries.</li>
@@ -80,7 +83,12 @@
                   <li><strong>Image Generation:</strong> Generate high-quality images based on textual prompts using diffusion models.</li>
                   <li><strong>Friendly Interface:</strong> A GTK-based interface replaces the terminal interface for easier use.</li>
                 </ul>
-          
+                <figure>
+                    <img class="h-100" src="assets/img/iassistant-ui.png">
+                    <figcaption   style="text-align: left">Fig 1: IAssistant user interface.</figcaption>
+                  </figure> 
+
+
                 <h2>Use Cases</h2>
                 <p>
                   Here are a few ways you can use IAssistant:
@@ -113,39 +121,189 @@
                   <em>What’s next for IAssistant? </em>I’m actively exploring features like agent-based extensions, real-time web integrations, and enhanced multi-modal capabilities. 
                   If you have ideas or want to collaborate, feel free to reach out!
                 </p>
-              </div>
-            </div>
+              </div> -->
+                            <div>
+                                <p>
+                                    IAssistant is a demonstration of how advanced AI models can be integrated into daily
+                                    workflows to address real-world challenges.
+                                    It showcases the flexibility of state-of-the-art tools and how they can be adapted
+                                    to meet diverse needs—from voice transcriptions to document analysis.
+                                </p>
+                                <figure>
+                                    <img class="w-100" src="assets/img/voice.jpg">
+                                </figure>
+                            </div>
+                            <div>
+                                <section>
+                                    <h2>AI Assistants in Everyday Life</h2>
+                                    <p>
+                                        AI assistants are transforming how we approach daily tasks by enabling natural,
+                                        intuitive interactions with computers.
+                                        Imagine a tool that can listen to your requests, analyze data, or even interpret
+                                        images. That’s what IAssistant exemplifies—a way to bridge complex technology
+                                        with practical needs.
+                                    </p>
+                                    <p>Here are just a few examples of what such an assistant can accomplish:</p>
+                                    <ul>
+                                        <li>Summarizing the contents of long PDFs with a single question.</li>
+                                        <li>Analyzing images or documents copied to your clipboard.</li>
+                                        <li>Generating visuals from text prompts, refined using AI-powered prompt
+                                            generation.</li>
+                                    </ul>
+                                    <p>
+                                        By integrating language and vision models, tools like IAssistant simplify
+                                        problem-solving and streamline productivity.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2>Listening and Understanding: The Transcriber</h2>
+                                    <p>
+                                        At the core of IAssistant’s voice capabilities is its transcriber engine, which
+                                        converts speech into text.
+                                        Depending on the task, IAssistant supports two powerful transcription tools:
+                                    </p>
+                                    <ul>
+                                        <li><strong>Transformers Whisper:</strong> A robust choice for multilingual
+                                            transcription and high accuracy.</li>
+                                        <li><strong>Faster Whisper:</strong> Optimized for speed and efficiency, perfect
+                                            for lightweight tasks.</li>
+                                    </ul>
+                                    <p>
+                                        You can customize the transcriber further by choosing different models, such as
+                                        the compact `tiny.en` for quick English transcriptions on a CPU, or larger
+                                        multilingual models for more complex tasks on a GPU. This adaptability
+                                        highlights how easily these tools can be tuned to specific needs.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2>Enabling Advanced Language Models with Ollama</h2>
+                                    <p>
+                                        Running language models locally is another key feature of IAssistant, achieved
+                                        through the <a href="https://ollama.ai" target="_blank">Ollama</a> server.
+                                        This framework allows for seamless integration of a wide range of AI models:
+                                    </p>
+                                    <ul>
+                                        <li>Pre-trained and fine-tuned models for specialized tasks like summarization
+                                            or coding assistance.</li>
+                                        <li>Vision-language models for image-related queries and analysis.</li>
+                                        <li>Custom workflows by adapting models to niche use cases.</li>
+                                    </ul>
+                                    <p>
+                                        This capability ensures privacy, flexibility, and control, showing how AI can be
+                                        leveraged to address specific challenges effectively.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2>Talking Back: Text-to-Speech with Piper</h2>
+                                    <p>
+                                        Communication with IAssistant doesn’t stop at understanding; it also responds in
+                                        natural, human-like speech using <a
+                                            href="https://github.com/rhasspy/piper/tree/master"
+                                            target="_blank">Piper</a>.
+                                        Piper supports:
+                                    </p>
+                                    <ul>
+                                        <li>A variety of voices and languages to suit different contexts.</li>
+                                        <li>Optimized performance, even on constrained devices like Raspberry Pi.</li>
+                                    </ul>
+                                    <p>
+                                        The ability to personalize responses adds depth to the interaction and
+                                        demonstrates the assistant's versatility.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2>Customization with a GTK Interface</h2>
+                                    <figure>
+                                        <img class="h-100" src="assets/img/iassistant-ui.png">
+                                        <figcaption style="text-align: left">Fig 1: IAssistant user interface.
+                                        </figcaption>
+                                    </figure>
+                                    <p>
+                                        To make IAssistant accessible and adaptable, a Python GTK interface replaces
+                                        traditional command-line operations. This UI provides:
+                                    </p>
+                                    <ul>
+                                        <li>Easy model selection and configuration adjustments (e.g., changing voices or
+                                            prompts).</li>
+                                        <li>A streamlined way to tailor settings for specific tasks or preferences.</li>
+                                        <li>Seamless integration into Linux environments, enhancing user experience.
+                                        </li>
+                                    </ul>
+                                    <p>
+                                        This interface shows how AI tools can be made more user-friendly, enabling
+                                        greater adoption and effectiveness.
+                                    </p>
+                                </section>
+
+                                <section>
+                                    <h2>Looking Ahead: Potential Extensions</h2>
+                                    <p>
+                                        While IAssistant is a demo, its modular design opens up exciting possibilities
+                                        for future applications:
+                                    </p>
+                                    <ul>
+                                        <li><strong>Agent frameworks:</strong> Automate complex, multi-step workflows to
+                                            save time and reduce errors.</li>
+                                        <li><strong>Retrieval-Augmented Generation (RAG):</strong> Combine AI with
+                                            document search to answer questions based on large knowledge bases.</li>
+                                        <li><strong>Advanced vision tasks:</strong> Expand capabilities to include
+                                            object detection or intricate image analysis.</li>
+                                    </ul>
+                                    <p>
+                                        These extensions illustrate how AI can evolve to meet an ever-growing range of
+                                        challenges, making it an indispensable tool for innovation.
+                                    </p>
+                                </section>
+
+                                <h2>Useful Links</h2>
+                                <ul>
+                                    <li><a href="https://github.com/sdelahaies/IAssistant">Using AI to Solve Real-World Problems</a></li>
+                                    <li><a href="https://github.com/ILikeAI/AlwaysReddy">AlwaysReddy: Terminal-based AI Assistant</a></li>
+                                    <li><a href="https://ollama.com/">Ollama: Get up and running with large language models</a></li>
+                                    <li><a href="https://huggingface.co/openai/whisper-large-v3-turbo">OpenAI Whisper Large v3 Turbo</a></li>
+                                    <li><a href="https://github.com/SYSTRAN/faster-whisper">Faster Whisper</a></li>
+                                    <li><a href="https://github.com/rhasspy/piper/tree/master">Piper: Neural Text-to-Speech</a></li>
+                                    <li><a href="https://python-gtk-3-tutorial.readthedocs.io/">The Python GTK+ 3 Tutorial</a></li>
+                                </ul>
+                            </div>
+                        </div>
 
 
-          </div>
-          <div class="col-md-4">
+                    </div>
+                    <div class="col-md-4">
 
 
 
-            <div class="widget-sidebar">
-              <h5 class="sidebar-title">Recent Post</h5>
-              <div class="sidebar-content">
-                <ul class="list-sidebar">
-                    <li>
-                        <a href="iassistant.html">IAssistant: a versatile Voice Assistant</a>
-                    </li>  
-                  <li>
-                    <a href="deepwars.html">Object Localization in Space... kinda</a>
-                  </li>  
-                  <li>
-                    <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career before it even started? TAKE 2</a>
-                  </li>  
-                  <li>
-                    <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before it even started?</a>
-                  </li>    
-                  
-                  <li>
-                    <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
-                  </li>
-                  <li>
-                    <a href="travelplanner.html">Travel planner</a>
-                  </li>
-                  <!--
+                        <div class="widget-sidebar">
+                            <h5 class="sidebar-title">Recent Post</h5>
+                            <div class="sidebar-content">
+                                <ul class="list-sidebar">
+                                    <li>
+                                        <a href="iassistant.html">IAssistant: a versatile Voice Assistant</a>
+                                    </li>
+                                    <li>
+                                        <a href="deepwars.html">Object Localization in Space... kinda</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career
+                                            before it even started? TAKE 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before
+                                            it even started?</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
+                                    </li>
+                                    <li>
+                                        <a href="travelplanner.html">Travel planner</a>
+                                    </li>
+                                    <!--
                   <li>
                     <a href="#">4DEnsVar</a>
                   </li>
@@ -153,75 +311,76 @@
                     <a href="#">OCNI bot</a>
                   </li>
                   -->
-                </ul>
-              </div>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="widget-sidebar widget-tags">
+                            <h5 class="sidebar-title">Tags</h5>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li>
+                                        <a href="#">Voice assistant</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">text to speech</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">transcriber</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Python gtk3</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">piper</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">whisper</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">transformers</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </section><!-- End Blog Single Section -->
 
-            <div class="widget-sidebar widget-tags">
-              <h5 class="sidebar-title">Tags</h5>
-              <div class="sidebar-content">
-                <ul>
-                  <li>
-                    <a href="#">Voice assistant</a>
-                  </li>
-                  <li>
-                    <a href="#">text to speech</a>
-                  </li>
-                  <li>
-                    <a href="#">transcriber</a>
-                  </li>
-                  <li>
-                    <a href="#">Python gtk3</a>
-                  </li>
-                  <li>
-                    <a href="#">piper</a>
-                  </li>
-                  <li>
-                    <a href="#">whisper</a>
-                  </li>
-                  <li>
-                    <a href="#">transformers</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Blog Single Section -->
-
-  </main><!-- End #main -->
+    </main><!-- End #main -->
 
 
-  <!-- ======= Footer ======= -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <p class="copyright">&copy; <strong>2025 S. delahaies</strong></p>
-            <!--
+    <!-- ======= Footer ======= -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; <strong>2025 S. delahaies</strong></p>
+                        <!--
             <div class="credits">
               conçu avec <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/"> DevFolio</a>, hébergé par <a href="https://github.com/">Github</a>  
             </div>
             -->
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+    </footer><!-- End  Footer -->
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/glightbox.min.js"></script>
-  <script src="assets/js/swiper-bundle.min.js"></script>
-  <script src="assets/js/typed.min.js"></script>
-  <script src="assets/js/ob_mail.js"></script>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-  <script src="assets/js/tl_script.js"></script>
-  <script src="assets/js/main.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/ob_mail.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="assets/js/tl_script.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 
