@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sylvain Delahaies</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/style_blog.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+        </div>
+    </header><!-- End Header -->
+
+
+    <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
+        <div class="overlay-mf"></div>
+        <div class="hero-content display-table">
+            <div class="table-cell">
+                <div class="container">
+                    <h2 class="hero-title mb-4">Projects & Research</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main id="main">
+
+        <!-- ======= Blog Single Section ======= -->
+        <section class="blog-wrapper sect-pt4" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+
+
+
+                        <div class="post-box">
+                            <div class="post-meta">
+                                <h1 class="article-title" id="1">Flowizer: Agentic Workflow Automation</h1>
+                                <ul>
+                                    <li>
+                                        <span class="bi bi-person"></span>
+                                        <a href="#">S. Delahaies</a>
+                                    </li>
+                                    <li>
+                                        <span class="bi bi-tag"></span>
+                                        <a href="#">Data Science/Engineering</a>
+                                    </li>
+                                    <li>
+                                      <span class="bi bi bi-calendar"></span>
+                                      28-12-2024
+                                  </li>
+                                </ul>
+                                <br></br>
+                                <figure>
+                                    <img class="w-100" src="assets/img/flowizer-terminal.png">
+                                </figure>
+                            </div>
+                
+                            <article>
+                                <!-- <h1>Exploring Flowizer: Prototyping Carbon Footprint Analysis Workflows</h1> -->
+                          
+                                <section>
+                                  <!-- <h2>The Rise of Agentic Frameworks and Workflow Automation with Generative AI</h2> -->
+                                  <p>
+                                    The convergence of agentic frameworks and workflow automation has recently become a focal point  in modern AI and data science. Tools like LangChain, flowiseAI and many others have revolutionized the way workflows integrate large language models and data processing. MLOPS pratices have also brought their share of orchestration and automation frameworks. Generative AI further enhances these frameworks by enabling more dynamic interactions, flexible reasoning, and adaptive decision-making. This trend underscores a growing need for streamlined solutions to handle complex computational workflows efficiently.
+                                  </p>
+                                  <p>
+                                    In this context, the demand for lightweight, adaptable frameworks capable of orchestrating various tools and techniques has skyrocketed. While robust platforms such as Apache Airflow exist, their complexity often makes them ill-suited for early-stage prototyping. Flowizer addresses this gap by providing a straightforward, extensible framework tailored to dynamic workflows with diverse data processing needs.
+                                  </p>
+                                  <p><span class="bi bi-github"></span><a href="https://github.com/sdelahaies/flowizer"> Flowizer repository</a></p>
+                                </section>
+                          
+                                <section>
+                                  <h2>Why Flowizer Was the Right Choice for Prototyping</h2>
+                                  <p>
+                                    Flowizer emerged as the ideal solution for prototyping a carbon footprint analysis workflow. The project required the integration of advanced document processing, machine learning models, and emission factor retrieval techniques. Off-the-shelf solutions either lacked the flexibility or imposed steep learning curves, making them impractical for rapid development.
+                                  </p>
+                                  <p>
+                                    With its lightweight design and focus on configurable workflows, Flowizer allowed us to implement a fully functional prototype in a fraction of the time required by traditional platforms. Its dynamic architecture provided the freedom to incorporate a wide range of tools, from OCR and regex extraction to transformer-based classification models and LLMs, enabling seamless experimentation and iteration.
+                                  </p>
+                                </section>
+                          
+                                <section>
+                                  <h2>Flowizer Logic and Principles</h2>
+                                  <p>
+                                    At its core, Flowizer is a directed acyclic graph (DAG) workflow manager powered by a pub/sub system. Nodes in the DAG represent tasks, while edges dictate data flow between tasks. Each node listens for a trigger in its respective topic, ensuring that all prerequisites are met before execution. This approach minimizes resource contention and ensures efficient task orchestration.
+                                  </p>
+                                  <p>
+                                    The data exchange between nodes is facilitated through dictionaries, enabling flexible and dynamic data structures. Each node processes input data, performs its designated task, and emits output data to downstream nodes. Conditional branching further enhances Flowizer’s adaptability, allowing workflows to respond dynamically to varying inputs and execution conditions.
+                                  </p>
+                                  <figure>
+                                    <img class="w-100" src="assets/img/flowizer_api.png">
+                                </figure>
+                                </section>
+                          
+                                <section>
+                                  <h2>Key Features of Flowizer</h2>
+                                  <ul>
+                                    <li>Dynamic workflow configuration via YAML files</li>
+                                    <li>Support for conditional execution modes</li>
+                                    <li>Graphical visualization of workflows</li>
+                                    <li>Extensible node types for custom functionality</li>
+                                    <li>Integration with RESTful APIs for external control</li>
+                                  </ul>
+                                  <p>
+                                    These features make Flowizer a versatile tool for prototyping workflows in diverse domains, from document analysis to machine learning pipelines. Its extensibility ensures that users can easily augment its capabilities with custom functions tailored to specific needs.
+                                  </p>
+                                </section>
+                          
+                                <section>
+                                  <h2>Workflow Configuration Example</h2>
+                                  <p>
+                                    A Flowizer workflow is defined using a simple YAML configuration. Below is an example illustrating a document analysis pipeline:
+                                  </p>
+                                  <div class="demo-highlight"><pre><span></span>
+  <span class="w"></span><span class="p p-Indicator">---</span>
+  <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conditional_flow</span>
+  <span class="nt">createdAt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">27-12-24 14:23:00</span>
+  <span class="nt">nodes</span><span class="p">:</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Input,input_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PDF2Text,pdf2text_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Output,output_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Prompt,prompt_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">OllamaExtract,ollama_fn_2</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">TestFootprint,testfootprint_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">AcceptFootprint,acceptfootprint_fn</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">RejectFootprint,rejectfooprint_fn</span>
+  <span class="nt">flow</span><span class="p">:</span><span class="w"> </span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1&gt;&gt;2</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2,4&gt;&gt;5</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5&gt;&gt;6</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">6&gt;&gt;7,8</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2,5,7,8&gt;&gt;3</span>
+  <span class="nt">inputs</span><span class="p">:</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">Input</span><span class="p">:</span><span class="w"> </span>
+  <span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">"dell-xps-8960-pcf-datasheet.pdf"</span>
+  <span class="nt">params</span><span class="p">:</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">OllamaExtract</span><span class="p">:</span>
+  <span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">"llama3.2:3b"</span>
+  <span class="w">      </span><span class="nt">system</span><span class="p">:</span><span class="w"> </span><span class="s">"You</span><span class="nv"> </span><span class="s">are</span><span class="nv"> </span><span class="s">an</span><span class="nv"> </span><span class="s">expert</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">document</span><span class="nv"> </span><span class="s">analysis..."</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">TestFootprint</span><span class="p">:</span>
+  <span class="w">      </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conditional</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">AcceptFootprint</span><span class="p">:</span>
+  <span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">A</span>
+  <span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">RejectFootprint</span><span class="p">:</span>
+  <span class="w">      </span><span class="nt">branch</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">B</span><span class="w">  </span>
+  <span class="w">  </span>
+  </pre></div>
+                                                                    <style id="css-style">pre { line-height: 125%; }
+                                                                    td.linenos .normal { color: #37474F; background-color: #263238; padding-left: 5px; padding-right: 5px; }
+                                                                    span.linenos { color: #37474F; background-color: #263238; padding-left: 5px; padding-right: 5px; }
+                                                                    td.linenos .special { color: #607A86; background-color: #263238; padding-left: 5px; padding-right: 5px; }
+                                                                    span.linenos.special { color: #607A86; background-color: #263238; padding-left: 5px; padding-right: 5px; }
+                                                                    .demo-highlight .hll { background-color: #2C3B41 }
+                                                                    .demo-highlight { background: #263238; color: #EEFFFF }
+                                                                    .demo-highlight .c { color: #546E7A; font-style: italic } /* Comment */
+                                                                    .demo-highlight .err { color: #FF5370 } /* Error */
+                                                                    .demo-highlight .esc { color: #89DDFF } /* Escape */
+                                                                    .demo-highlight .g { color: #EEFFFF } /* Generic */
+                                                                    .demo-highlight .k { color: #BB80B3 } /* Keyword */
+                                                                    .demo-highlight .l { color: #C3E88D } /* Literal */
+                                                                    .demo-highlight .n { color: #EEFFFF } /* Name */
+                                                                    .demo-highlight .o { color: #89DDFF } /* Operator */
+                                                                    .demo-highlight .p { color: #89DDFF } /* Punctuation */
+                                                                    .demo-highlight .ch { color: #546E7A; font-style: italic } /* Comment.Hashbang */
+                                                                    .demo-highlight .cm { color: #546E7A; font-style: italic } /* Comment.Multiline */
+                                                                    .demo-highlight .cp { color: #546E7A; font-style: italic } /* Comment.Preproc */
+                                                                    .demo-highlight .cpf { color: #546E7A; font-style: italic } /* Comment.PreprocFile */
+                                                                    .demo-highlight .c1 { color: #546E7A; font-style: italic } /* Comment.Single */
+                                                                    .demo-highlight .cs { color: #546E7A; font-style: italic } /* Comment.Special */
+                                                                    .demo-highlight .gd { color: #FF5370 } /* Generic.Deleted */
+                                                                    .demo-highlight .ge { color: #89DDFF } /* Generic.Emph */
+                                                                    .demo-highlight .ges { color: #FFCB6B } /* Generic.EmphStrong */
+                                                                    .demo-highlight .gr { color: #FF5370 } /* Generic.Error */
+                                                                    .demo-highlight .gh { color: #C3E88D } /* Generic.Heading */
+                                                                    .demo-highlight .gi { color: #C3E88D } /* Generic.Inserted */
+                                                                    .demo-highlight .go { color: #546E7A } /* Generic.Output */
+                                                                    .demo-highlight .gp { color: #FFCB6B } /* Generic.Prompt */
+                                                                    .demo-highlight .gs { color: #FF5370 } /* Generic.Strong */
+                                                                    .demo-highlight .gu { color: #89DDFF } /* Generic.Subheading */
+                                                                    .demo-highlight .gt { color: #FF5370 } /* Generic.Traceback */
+                                                                    .demo-highlight .kc { color: #89DDFF } /* Keyword.Constant */
+                                                                    .demo-highlight .kd { color: #BB80B3 } /* Keyword.Declaration */
+                                                                    .demo-highlight .kn { color: #89DDFF; font-style: italic } /* Keyword.Namespace */
+                                                                    .demo-highlight .kp { color: #89DDFF } /* Keyword.Pseudo */
+                                                                    .demo-highlight .kr { color: #BB80B3 } /* Keyword.Reserved */
+                                                                    .demo-highlight .kt { color: #BB80B3 } /* Keyword.Type */
+                                                                    .demo-highlight .ld { color: #C3E88D } /* Literal.Date */
+                                                                    .demo-highlight .m { color: #F78C6C } /* Literal.Number */
+                                                                    .demo-highlight .s { color: #C3E88D } /* Literal.String */
+                                                                    .demo-highlight .na { color: #BB80B3 } /* Name.Attribute */
+                                                                    .demo-highlight .nb { color: #82AAFF } /* Name.Builtin */
+                                                                    .demo-highlight .nc { color: #FFCB6B } /* Name.Class */
+                                                                    .demo-highlight .no { color: #EEFFFF } /* Name.Constant */
+                                                                    .demo-highlight .nd { color: #82AAFF } /* Name.Decorator */
+                                                                    .demo-highlight .ni { color: #89DDFF } /* Name.Entity */
+                                                                    .demo-highlight .ne { color: #FFCB6B } /* Name.Exception */
+                                                                    .demo-highlight .nf { color: #82AAFF } /* Name.Function */
+                                                                    .demo-highlight .nl { color: #82AAFF } /* Name.Label */
+                                                                    .demo-highlight .nn { color: #FFCB6B } /* Name.Namespace */
+                                                                    .demo-highlight .nx { color: #EEFFFF } /* Name.Other */
+                                                                    .demo-highlight .py { color: #FFCB6B } /* Name.Property */
+                                                                    .demo-highlight .nt { color: #FF5370 } /* Name.Tag */
+                                                                    .demo-highlight .nv { color: #89DDFF } /* Name.Variable */
+                                                                    .demo-highlight .ow { color: #89DDFF; font-style: italic } /* Operator.Word */
+                                                                    .demo-highlight .pm { color: #89DDFF } /* Punctuation.Marker */
+                                                                    .demo-highlight .w { color: #EEFFFF } /* Text.Whitespace */
+                                                                    .demo-highlight .mb { color: #F78C6C } /* Literal.Number.Bin */
+                                                                    .demo-highlight .mf { color: #F78C6C } /* Literal.Number.Float */
+                                                                    .demo-highlight .mh { color: #F78C6C } /* Literal.Number.Hex */
+                                                                    .demo-highlight .mi { color: #F78C6C } /* Literal.Number.Integer */
+                                                                    .demo-highlight .mo { color: #F78C6C } /* Literal.Number.Oct */
+                                                                    .demo-highlight .sa { color: #BB80B3 } /* Literal.String.Affix */
+                                                                    .demo-highlight .sb { color: #C3E88D } /* Literal.String.Backtick */
+                                                                    .demo-highlight .sc { color: #C3E88D } /* Literal.String.Char */
+                                                                    .demo-highlight .dl { color: #EEFFFF } /* Literal.String.Delimiter */
+                                                                    .demo-highlight .sd { color: #546E7A; font-style: italic } /* Literal.String.Doc */
+                                                                    .demo-highlight .s2 { color: #C3E88D } /* Literal.String.Double */
+                                                                    .demo-highlight .se { color: #EEFFFF } /* Literal.String.Escape */
+                                                                    .demo-highlight .sh { color: #C3E88D } /* Literal.String.Heredoc */
+                                                                    .demo-highlight .si { color: #89DDFF } /* Literal.String.Interpol */
+                                                                    .demo-highlight .sx { color: #C3E88D } /* Literal.String.Other */
+                                                                    .demo-highlight .sr { color: #89DDFF } /* Literal.String.Regex */
+                                                                    .demo-highlight .s1 { color: #C3E88D } /* Literal.String.Single */
+                                                                    .demo-highlight .ss { color: #89DDFF } /* Literal.String.Symbol */
+                                                                    .demo-highlight .bp { color: #89DDFF } /* Name.Builtin.Pseudo */
+                                                                    .demo-highlight .fm { color: #82AAFF } /* Name.Function.Magic */
+                                                                    .demo-highlight .vc { color: #89DDFF } /* Name.Variable.Class */
+                                                                    .demo-highlight .vg { color: #89DDFF } /* Name.Variable.Global */
+                                                                    .demo-highlight .vi { color: #89DDFF } /* Name.Variable.Instance */
+                                                                    .demo-highlight .vm { color: #82AAFF } /* Name.Variable.Magic */
+                                                                    .demo-highlight .il { color: #F78C6C } /* Literal.Number.Integer.Long */</style>
+                                  <!-- <pre style="background-color: #758ca3;">
+                                    <code >
+  ---
+  name: conditional_flow
+  createdAt: 27-12-24 14:23:00
+  nodes:
+  - 1: Input,input_fn
+  - 2: PDF2Text,pdf2text_fn
+  - 3: Output,output_fn
+  - 4: Prompt,prompt_fn
+  - 5: OllamaExtract,ollama_fn_2
+  - 6: TestFootprint,testfootprint_fn
+  - 7: AcceptFootprint,acceptfootprint_fn
+  - 8: RejectFootprint,rejectfooprint_fn
+  flow: 
+  - 1>>2
+  - 2,4>>5
+  - 5>>6
+  - 6>>7,8
+  - 2,5,7,8>>3
+  inputs:
+  - Input: 
+      filename: "dell-xps-8960-pcf-datasheet.pdf"
+  params:
+  - OllamaExtract:
+      model: "llama3.2:3b"
+      system: "You are an expert in document analysis..."
+  - TestFootprint:
+      mode: conditional
+  - AcceptFootprint:
+      branch: A
+  - RejectFootprint:
+      branch: B   </code>
+                                  </pre> -->
+                                  <p>
+                                    This YAML file defines nodes, their interconnections, and input parameters, providing a clear and concise way to manage complex workflows. The example above illustrates a conditional workflow for analyzing a PDF document, extracting relevant information, and operating a conditional choice based on the extracted data. Flowizer allows to visualize the workflow and its execution in a graphical manner using networkx as illustrated below.
+                                  </p>
+                                  <figure>
+                                    <img class="h-80" src="assets/img/conditional_flow.png">
+                                </figure>
+                                </section>
+                          
+                                <section>
+                                  <h2>Future Developments</h2>
+                                  <p>
+                                    While Flowizer has proven effective for prototyping, there are opportunities for further enhancement. First it has yet to integate agentic capabilities, that is to integrate reasoning and iterative planning to semi-autonomously solve complex, multi-step problems. 
+                                  </p>
+                                  <p>
+                                    Future iterations could include tighter integration with popular frameworks like LangChain and vector databases, improved support for distributed execution, and a more user-friendly interface for workflow visualization and editing.
+                                  </p>
+                                  <p>
+                                    Additional features like automatic failure recovery, enhanced logging, and monitoring capabilities would also make Flowizer more suitable for production environments. Collaboration with the open-source community could accelerate these developments, ensuring Flowizer remains a competitive and innovative tool.
+                                  </p>
+                                </section>
+                          
+                                <section>
+                                  <h2>Useful Links</h2>
+                                  <ul>
+                                    <li><a href="https://github.com/yourusername/flowizer">Flowizer GitHub Repository</a></li>
+                                    <li><a href="https://github.com/apache/infrastructure-pypubsub">PyPubSub - An asynchronous pubsub protocol written in Python 3</a></li>
+                                    <li><a href="https://airflow.apache.org/docs/apache-airflow/stable/core-concepts/dags.html">Apache Airflow DAGs</a></li>
+                                    <li><a href="https://networkx.org/">NetworkX for Graph Visualization</a></li>
+                                    <li><a href="https://fastapi.tiangolo.com/">FastAPI Documentation</a></li>
+                                  </ul>
+                                </section>
+                              </article>
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+
+
+                        <div class="widget-sidebar">
+                            <h5 class="sidebar-title">Recent Post</h5>
+                            <div class="sidebar-content">
+                                <ul class="list-sidebar">
+                                    <li>
+                                        <a href="flowizer.html">Flowizer: Agentic Workflow Automation</a>
+                                    </li>
+                                    <li>
+                                        <a href="iassistant.html">IAssistant: a versatile Voice Assistant</a>
+                                    </li>
+                                    <li>
+                                        <a href="deepwars.html">Object Localization in Space... kinda</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career
+                                            before it even started? TAKE 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before
+                                            it even started?</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
+                                    </li>
+                                    <li>
+                                        <a href="travelplanner.html">Travel planner</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="widget-sidebar widget-tags">
+                            <h5 class="sidebar-title">Tags</h5>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li>
+                                        <a href="#">pypubsub</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Agent</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Python</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">fastapi</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">networkx</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">yaml</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">workflow</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">DAG</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Blog Single Section -->
+
+    </main><!-- End #main -->
+
+
+    <!-- ======= Footer ======= -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; <strong>2025 S. delahaies</strong></p>
+                        <!--
+            <div class="credits">
+              conçu avec <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/"> DevFolio</a>, hébergé par <a href="https://github.com/">Github</a>  
+            </div>
+            -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/ob_mail.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="assets/js/tl_script.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
+
+
+
+<!--
+
+import React from 'react';
+
+const FlowizerArticle = () => {
+  return (
+    <article>
+      <h1>Exploring Flowizer: Prototyping Carbon Footprint Analysis Workflows</h1>
+
+      <section>
+        <h2>The Rise of Agentic Frameworks and Workflow Automation with Generative AI</h2>
+        <p>
+          The convergence of agentic frameworks and workflow automation has become a focal point in modern AI and data science. Tools like LangChain and Weaviate have revolutionized the way workflows integrate data processing, machine learning, and automation. Generative AI further enhances these frameworks by enabling more dynamic interactions, flexible reasoning, and adaptive decision-making. This trend underscores a growing need for streamlined solutions to handle complex computational workflows efficiently.
+        </p>
+        <p>
+          In this context, the demand for lightweight, adaptable frameworks capable of orchestrating various tools and techniques has skyrocketed. While robust platforms such as Apache Airflow exist, their complexity often makes them ill-suited for early-stage prototyping. Flowizer addresses this gap by providing a straightforward, extensible framework tailored to dynamic workflows with diverse data processing needs.
+        </p>
+      </section>
+
+      <section>
+        <h2>Why Flowizer Was the Right Choice for Prototyping</h2>
+        <p>
+          Flowizer emerged as the ideal solution for prototyping a carbon footprint analysis workflow. The project required the integration of advanced document processing, machine learning models, and emission factor retrieval techniques. Off-the-shelf solutions either lacked the flexibility or imposed steep learning curves, making them impractical for rapid development.
+        </p>
+        <p>
+          With its lightweight design and focus on configurable workflows, Flowizer allowed us to implement a fully functional prototype in a fraction of the time required by traditional platforms. Its dynamic architecture provided the freedom to incorporate a wide range of tools, from OCR and regex extraction to transformer-based classification models, enabling seamless experimentation and iteration.
+        </p>
+      </section>
+
+      <section>
+        <h2>Flowizer Logic and Principles</h2>
+        <p>
+          At its core, Flowizer is a directed acyclic graph (DAG) workflow manager powered by a pub/sub system. Nodes in the DAG represent tasks, while edges dictate data flow between tasks. Each node listens for a trigger in its respective topic, ensuring that all prerequisites are met before execution. This approach minimizes resource contention and ensures efficient task orchestration.
+        </p>
+        <p>
+          The data exchange between nodes is facilitated through dictionaries, enabling flexible and dynamic data structures. Each node processes input data, performs its designated task, and emits output data to downstream nodes. Conditional branching further enhances Flowizer’s adaptability, allowing workflows to respond dynamically to varying inputs and execution conditions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Key Features of Flowizer</h2>
+        <ul>
+          <li>Dynamic workflow configuration via YAML files</li>
+          <li>Support for conditional execution modes</li>
+          <li>Graphical visualization of workflows</li>
+          <li>Extensible node types for custom functionality</li>
+          <li>Integration with RESTful APIs for external control</li>
+          <li>Compatibility with both file-based and database-driven workflows</li>
+        </ul>
+        <p>
+          These features make Flowizer a versatile tool for prototyping workflows in diverse domains, from document analysis to machine learning pipelines. Its extensibility ensures that users can easily augment its capabilities with custom functions tailored to specific needs.
+        </p>
+      </section>
+
+      <section>
+        <h2>Workflow Configuration Example</h2>
+        <p>
+          A Flowizer workflow is defined using a simple YAML configuration. Below is an example illustrating a document analysis pipeline:
+        </p>
+        <pre>
+          <code>
+            ---
+            name: conditional_flow
+            createdAt: 27-12-24 14:23:00
+            nodes:
+              - 1: Input,input_fn
+              - 2: PDF2Text,pdf2text_fn
+              - 3: Output,output_fn
+              - 4: Prompt,prompt_fn
+              - 5: OllamaExtract,ollama_fn_2
+              - 6: TestFootprint,testfootprint_fn
+              - 7: AcceptFootprint,acceptfootprint_fn
+              - 8: RejectFootprint,rejectfooprint_fn
+            flow: 
+              - 1>>2
+              - 2,4>>5
+              - 5>>6
+              - 6>>7,8
+              - 2,5,7,8>>3
+            inputs:
+              - Input: 
+                  filename: "dell-xps-8960-pcf-datasheet.pdf"
+            params:
+              - OllamaExtract:
+                  model: "llama3.2:3b"
+                  system: "You are an expert in document analysis..."
+              - TestFootprint:
+                  mode: conditional
+              - AcceptFootprint:
+                  branch: A
+              - RejectFootprint:
+                  branch: B  
+          </code>
+        </pre>
+        <p>
+          This YAML file defines nodes, their interconnections, and input parameters, providing a clear and concise way to manage complex workflows.
+        </p>
+      </section>
+
+      <section>
+        <h2>Future Developments</h2>
+        <p>
+          While Flowizer has proven effective for prototyping, there are opportunities for further enhancement. Future iterations could include tighter integration with popular frameworks like LangChain and vector databases, improved support for distributed execution, and a more user-friendly interface for workflow visualization and editing.
+        </p>
+        <p>
+          Additional features like automatic failure recovery, enhanced logging, and monitoring capabilities would also make Flowizer more suitable for production environments. Collaboration with the open-source community could accelerate these developments, ensuring Flowizer remains a competitive and innovative tool.
+        </p>
+      </section>
+
+      <section>
+        <h2>Useful Links</h2>
+        <ul>
+          <li><a href="https://github.com/yourusername/flowizer" target="_blank">Flowizer GitHub Repository</a></li>
+          <li><a href="https://pubsub.apache.org/" target="_blank">Understanding Pub/Sub Systems</a></li>
+          <li><a href="https://networkx.org/" target="_blank">NetworkX for Graph Visualization</a></li>
+          <li><a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Documentation</a></li>
+          <li><a href="https://pypi.org/" target="_blank">Python Package Index</a></li>
+        </ul>
+      </section>
+    </article>
+  );
+};
+
+export default FlowizerArticle;
+-->
