@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Sylvain Delahaies</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/css/swiper-bundle.min.css" rel="stylesheet"> -->
+  <link href="assets/css/style_blog.css" rel="stylesheet">
+  <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <style>
+    .carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-color: #cc4400;
+  border-radius: 50%;
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+}
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+    </div>
+  </header><!-- End Header -->
+
+
+  <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
+    <div class="overlay-mf"></div>
+    <div class="hero-content display-table">
+      <div class="table-cell">
+        <div class="container">
+          <h2 class="hero-title mb-4">Projects & Research</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <main id="main">
+
+    <!-- ======= Blog Single Section ======= -->
+    <section class="blog-wrapper sect-pt4" id="blog">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+
+
+
+
+            <div class="post-box">
+              <div class="post-meta">
+                <h1 class="article-title" id="1">Flowizer-UI: A Low-Code Interface for Workflow Automation</h1>
+                <ul>
+                  <li>
+                    <span class="bi bi-person"></span>
+                    <a href="#">S. Delahaies</a>
+                  </li>
+                  <li>
+                    <span class="bi bi-tag"></span>
+                    <a href="#">Data Science/Engineering</a>
+                  </li>
+                  <li>
+                    <span class="bi bi bi-calendar"></span>
+                    3-01-2025
+                  </li>
+                </ul>
+                <br></br>
+                <figure>
+                  <img class="w-100" src="assets/img/flowizer-ui.png">
+                </figure>
+              </div>
+
+              <article>
+                <div>
+                  <p>
+                    Last year I was prototyping a tool to estimate carbon footprint for companies based on their
+                    accounting and supporting documents. The process involved many steps, including various AI
+                    utilities, from simple text extraction to more advanced OCR tools, from regex-based data extraction
+                    to LLM chains of thought, from document classification using computer vision models to
+                    question-answering techniques with vision-language models, and from basic SQL queries to embedding
+                    retrieval strategies. There were countless combinations to validate, and a purely code-based
+                    approach to manage all these steps quickly felt cumbersome. A low-code/no-code solution seemed like
+                    an ideal way to enable non-technical colleagues to configure and oversee these workflows without
+                    depending on developers for every adjustment.
+                  </p>
+                  <p>
+                    Over the last couple of years, workflow management
+                    applications have emerged as powerful tools to bridge this gap, offering visual interfaces to define
+                    and monitor complex processes. Alongside established solutions like Apache Airflow for DAG
+                    automation, Camunda or n8n for BPMN-based workflows, newer tools have surfaced with powerful and
+                    polished UIs, leveraging frameworks like ReactFlow or its alternatives. These frameworks have
+                    enabled tools like LangFlow and FlowiseAI for LLM applications, or ComfyUI and others for image
+                    generation, to deliver intuitive visual
+                    editors that simplify the creation and management of workflows. Inspired by this trend, I started
+                    experimenting with building a tailored solution, resulting in Flowizer and its companion UI,
+                    Flowizer-UI.
+                  </p>
+
+                  <p>
+                    Diving into React and ReactFlow without prior experience in JavaScript, Node.js, and only basic
+                    frontend development quickly highlighted the challenges of building a fully-featured interface from
+                    scratch. The initial vision of crafting a comprehensive UI, with dedicated nodes for every
+                    utility—be it OCR tools, regex extraction modules, or LLM integrations—soon proved overly ambitious.
+                    Each node would require tailored frontend logic, backend communication, and UI design, demanding far
+                    more development time than I could afford for this project. At the same time, it became evident that
+                    a solid, flexible backend was not just a nice-to-have but an urgent necessity. Without a reliable
+                    system to orchestrate the complex logic of workflow execution, even the most polished frontend would
+                    fall short.
+                  </p>
+
+                  <p>
+                    This realization shifted the focus: the initial UI experiment, dubbed workflowbuilder, evolved into
+                    Flowizer, a Python API backend designed to handle the core logic, task orchestration, and data flow
+                    seamlessly. With the backend in place, the focus then returned to Flowizer-UI, but this time with a
+                    clearer goal: to prioritize visual workflow manipulation over an exhaustive library of empty,
+                    pre-built nodes. The result was a more pragmatic interface, one that emphasized clarity,
+                    configurability, and smooth interaction with the backend rather than attempting to replicate every
+                    possible node type upfront.
+                  </p>
+
+                  <!-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                   
+                    <ol class="carousel-indicators">
+                      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                      <li data-target="#myCarousel" data-slide-to="1"></li>
+                      <li data-target="#myCarousel" data-slide-to="2"></li>
+                      <li data-target="#myCarousel" data-slide-to="3"></li>
+                    </ol>
+                  
+                  
+                    <div class="carousel-inner" role="listbox">
+                      <div class="item active">
+                        <img src="img_chania.jpg" alt="Chania">
+                        <div class="carousel-caption">
+                          <h3>Chania</h3>
+                          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                      </div>
+                  
+                      <div class="item">
+                        <img src="img_chania2.jpg" alt="Chania">
+                        <div class="carousel-caption">
+                          <h3>Chania</h3>
+                          <p>The atmosphere in Chania has a touch of Florence and Venice.</p>
+                        </div>
+                      </div>
+                  
+                      <div class="item">
+                        <img src="img_flower.jpg" alt="Flower">
+                        <div class="carousel-caption">
+                          <h3>Flowers</h3>
+                          <p>Beautiful flowers in Kolymbari, Crete.</p>
+                        </div>
+                      </div>
+                  
+                      <div class="item">
+                        <img src="img_flower2.jpg" alt="Flower">
+                        <div class="carousel-caption">
+                          <h3>Flowers</h3>
+                          <p>Beautiful flowers in Kolymbari, Crete.</p>
+                        </div>
+                      </div>
+                    </div>
+                  
+     
+                    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div> -->
+<!-- 
+                  <div class="container">
+                    <h1>Carrousel</h1>
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+                    
+                      <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                      </ul>
+              
+                   
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-1.jpg" alt="Carrousel slide 1" class="d-block w-100">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h4>Titre de la légende</h4>
+                            <p>Légende de la slide n°1.</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-2.jpg" alt="Carrousel slide 2" class="d-block w-100">
+                          <div class="carousel-caption d-none d-md-block text-dark">
+                            <h4>Titre de la légende</h4>
+                            <p>Légende de la slide n°2.</p>
+                          </div>
+                        </div>
+                        <div class="carousel-item">
+                          <img src="https://www.pierre-giraud.com/bootstrap-carrousel-slide-3.jpg" alt="Carrousel slide 3" class="d-block w-100">
+                          <div class="carousel-caption d-none d-md-block">
+                            <h4>Titre de la légende</h4>
+                            <p>Légende de la slide n°3.</p>
+                          </div>
+                        </div>
+                      </div>
+              
+                     
+                      <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Précédent</span>
+                      </a>
+                      <a class="carousel-control-next" href="#demo" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Suivant</span>
+                      </a>
+                    </div>
+                  </div> -->
+
+                  <!-- <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/img/flowizer_api.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/workflowbuilder.png" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/comfyui.webp" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div> -->
+
+                  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+                      <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5" aria-label="Slide 6"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="assets/img/airflow-example-png.webp" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p style="color: rgb(255, 102, 0)"><b>Apache Airflow</b></p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/flowiseai.webp" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p style="color: rgb(255, 102, 0)"><b>FlowiseAI</b></p>
+                        </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/comfyui.webp" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p style="color: rgb(255, 102, 0)"><b>ComfyUI</b></p>
+                        </div>
+                      </div>
+                        <div class="carousel-item">
+                          <img src="assets/img/n8n.png" class="d-block w-100" alt="...">
+                          <div class="carousel-caption d-none d-md-block">
+                            <p style="color: rgb(255, 102, 0)"><b>n8n</b></p>
+                          </div>
+                      </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/workflowbuilder.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p style="color: rgb(255, 102, 0)"><b>WorkFlowBuilder</b></p>
+                        </div>
+                    </div>
+                      <div class="carousel-item">
+                        <img src="assets/img/flowizer-ui-full.png" class="d-block w-100" alt="...">
+                        <div class="carousel-caption d-none d-md-block">
+                          <p style="color: rgb(255, 102, 0)"><b>flowizer-ui</b></p>
+                        </div>
+                    </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev" style="color: rgb(255, 102, 0)"">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+                  <br></br>
+                  <h3>Why Build Custom Tools?</h3>
+
+                  <p>
+                    In the evolving landscape of AI and workflow automation, off-the-shelf tools like
+                    <strong>FlowiseAI</strong>, <b>n8n</b>, ..., have become popular for their intuitive drag-and-drop
+                    interfaces. While these platforms are powerful, they often come with assumptions about workflow structure and constraints that may not align perfectly with every use case, or they require steep learning curves.
+                  </p>
+
+                  <p>
+                    <strong>Flowizer</strong> and its companion interface, <strong>Flowizer-UI</strong>, emerged as an
+                    experimental attempt to address these problems. These projects were built to prototype workflows where AI,
+                    machine learning models, and traditional data processing pipelines intersect. By focusing on
+                    adaptability and simplicity, the goal was to create a toolchain that could handle dynamic data flows
+                    and decision-making processes without the overhead of fully-featured production systems.
+                  </p>
+
+
+                  <p>
+                    Many existing frameworks are either highly specialized or overly complex for prototyping early-stage
+                    workflows. A lightweight, modular approach can often provide clarity during experimentation.
+                    Flowizer uses a Directed Acyclic Graph (DAG) structure to manage tasks, while Flowizer-UI serves as
+                    a visual layer to simplify the configuration and execution of these tasks.
+                  </p>
+
+
+                  <h3>React, Next.js, and TypeScript in Flowizer-UI</h3>
+                  <p>
+                    Flowizer-UI is built using the <strong>Next.js</strong> framework, which provides server-side
+                    rendering and optimized performance for web applications. The decision to use
+                    <strong>TypeScript</strong> instead of JavaScript was driven by the need for better type safety and
+                    clearer code documentation. This choice made it easier to manage complex state transitions in the
+                    ReactFlow-based interface and reduced runtime errors during development.
+                  </p>
+
+                  <h3>Adjustments to Flowizer for UI Integration</h3>
+                  <p>
+                    Integrating Flowizer with Flowizer-UI required key adjustments on the backend. <strong>Pydantic
+                      classes</strong> were introduced to define clear data models for API communication, enabling
+                    seamless interactions between the Python backend and the React frontend. Additionally, <strong>CORS
+                      middleware</strong> was configured to allow cross-origin requests, ensuring smooth communication
+                    during workflow execution and visualization.
+                  </p>
+
+                  <h3>ReactFlow: A Flexible UI Framework</h3>
+                  <p>
+                    At the heart of Flowizer-UI lies ReactFlow, <i>a customizable React component for building node-based editors and interactive diagrams</i>. With a clean and well-structured documentation, ReactFlow provides clear explanations, practical examples, and step-by-step guides, making it accessible even to developers who are new to building interactive graph-based UIs. Beyond the documentation, ReactFlow boasts a rich ecosystem of open-source projects showcasing diverse use cases—from data visualization dashboards to dynamic workflow editors. These projects not only serve as inspiration but also provide ready-made patterns and best practices that developers can leverage. Its declarative API and highly customizable components make it a robust choice for creating tailored visual representations of workflows while maintaining flexibility and scalability.
+                  </p>
+
+                  <h3>Core Features of Flowizer-UI</h3>
+                  <ul>
+                    <li><strong>YAML Workflow Import:</strong> Load and parse YAML workflow configurations into
+                      interactive visual graphs.</li>
+                    <li><strong>Sidebar with Contextual Tabs:</strong>
+                      <ul>
+                        <li><strong>Workflow:</strong> Edit YAML configurations directly in a code editor.</li>
+                        <li><strong>Node:</strong> Inspect and modify the Python code defining specific tasks.</li>
+                        <li><strong>DTO (Data Transfer Object):</strong> View real-time data being exchanged between
+                          nodes.</li>
+                      </ul>
+                    </li>
+                    <li><strong>Interactive Node Management:</strong> Add, edit, or remove nodes directly from the UI.
+                    </li>
+                    <li><strong>Execution Control:</strong> Trigger workflows and monitor execution via API calls.</li>
+                  </ul>
+
+                  <h3>Lessons Learned</h3>
+                  <p>
+                    Building Flowizer-UI was as much about learning as it was about solving a specific problem. The
+                    combination of YAML-based configurations, ReactFlow diagrams, and Python backend logic provided a
+                    flexible playground for testing workflow ideas. Flowizer-UI is not a production-grade tool but a
+                    proof of concept—a space to
+                    experiment with complex AI workflows in a more approachable and visual way. Sometimes, building
+                    something custom is the best way to explore the boundaries of what's possible.
+
+                  <h3>Useful References</h3>
+                  <ul>
+                    <li><a href="https://github.com/your-repo/flowizer-ui">Flowizer-UI GitHub Repository</a></li>
+                    <li><a href="https://github.com/your-repo/flowizer">Flowizer GitHub Repository</a></li>
+                    <li><a href="https://reactflow.dev/">ReactFlow</a></li>
+                    <li><a href="https://flowiseai.com/">FlowiseAI</a></li>
+                    <li><a href="https://github.com/comfyanonymous/ComfyUI">ComfyUI</a></li>
+                  </ul>
+
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+
+          <div class="col-md-4">
+
+
+
+            <div class="widget-sidebar">
+              <h5 class="sidebar-title">Recent Post</h5>
+              <div class="sidebar-content">
+                <ul class="list-sidebar">
+                  <li>
+                    <a href="flowizer.html">Flowizer: Agentic Workflow Automation</a>
+                  </li>
+                  <li>
+                    <a href="iassistant.html">IAssistant: a versatile Voice Assistant</a>
+                  </li>
+                  <li>
+                    <a href="deepwars.html">Object Localization in Space... kinda</a>
+                  </li>
+                  <li>
+                    <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career
+                      before it even started? TAKE 2</a>
+                  </li>
+                  <li>
+                    <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before
+                      it even started?</a>
+                  </li>
+
+                  <li>
+                    <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
+                  </li>
+                  <li>
+                    <a href="travelplanner.html">Travel planner</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="widget-sidebar widget-tags">
+              <h5 class="sidebar-title">Tags</h5>
+              <div class="sidebar-content">
+                <ul>
+                  <li>
+                    <a href="#">pypubsub</a>
+                  </li>
+                  <li>
+                    <a href="#">Agent</a>
+                  </li>
+                  <li>
+                    <a href="#">Python</a>
+                  </li>
+                  <li>
+                    <a href="#">fastapi</a>
+                  </li>
+                  <li>
+                    <a href="#">networkx</a>
+                  </li>
+                  <li>
+                    <a href="#">yaml</a>
+                  </li>
+                  <li>
+                    <a href="#">workflow</a>
+                  </li>
+                  <li>
+                    <a href="#">DAG</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Blog Single Section -->
+
+  </main><!-- End #main -->
+
+
+  <!-- ======= Footer ======= -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="copyright-box">
+            <p class="copyright">&copy; <strong>2025 S. delahaies</strong></p>
+            <!--
+            <div class="credits">
+              conçu avec <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/"> DevFolio</a>, hébergé par <a href="https://github.com/">Github</a>  
+            </div>
+            -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End  Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+      <script>
+        // JavaScript for Carousel Functionality
+        const carousel = document.querySelector('.carousel');
+        const images = document.querySelectorAll('.carousel img');
+        const dotsContainer = document.querySelector('.carousel-dots');
+        let index = 0;
+    
+        // Create Navigation Dots
+        images.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.addEventListener('click', () => goToSlide(i));
+          dotsContainer.appendChild(dot);
+        });
+        const dots = document.querySelectorAll('.carousel-dots button');
+        updateDots();
+    
+        function showSlide() {
+          const offset = -index * 100;
+          carousel.style.transform = `translateX(${offset}%)`;
+          updateDots();
+        }
+    
+        function nextSlide() {
+          index = (index + 1) % images.length;
+          showSlide();
+        }
+    
+        function prevSlide() {
+          index = (index - 1 + images.length) % images.length;
+          showSlide();
+        }
+    
+        function goToSlide(i) {
+          index = i;
+          showSlide();
+        }
+    
+        function updateDots() {
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+          });
+        }
+      </script>
+
+
+  <script src="assets/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/js/glightbox.min.js"></script>
+  <script src="assets/js/swiper-bundle.min.js"></script>
+  <script src="assets/js/typed.min.js"></script>
+  <script src="assets/js/ob_mail.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+  <script src="assets/js/tl_script.js"></script>
+  <!-- <script src="assets/js/gallery.js"></script> -->
+  <!-- <script src="assets/js/carrousel.js"></script> -->
+
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
