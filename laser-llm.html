@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sylvain Delahaies</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <link href="assets/img/favicon.png" rel="icon">
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/glightbox.min.css" rel="stylesheet">
+    <link href="assets/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/css/style_blog.css" rel="stylesheet">
+    <link href="assets/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        window.MathJax = {
+            tags: 'ams',
+            tex: {
+                inlineMath: [['$', '$'], ['##', '##'], ["\\(", "\\)"]],
+                displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                processEscapes: true,
+                packages: { '[+]': ['noerrors'] }
+            },
+            chtml: {
+                displayAlign: "left"
+            },
+            options: {
+                processHtmlClass: 'cmath|dmath',
+                ignoreHtmlClass: 'tex2jax_ignore'
+            },
+            loader: {
+                load: ['input/tex', 'output/chtml', '[tex]/noerrors', 'ui/lazy']
+            }
+        };
+    </script>
+    <script>
+        MathJax = {
+            loader: {
+                load: ['input/tex-base', 'output/svg', 'ui/menu', '[tex]/require']
+            },
+            tex: {
+                packages: ['base', 'require']
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3.0.0/es5/startup.js">
+        </script>
+
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            padding: 0;
+            text-align: center;
+        }
+        .slider-container {
+            margin: 20px;
+        }
+        .output-container {
+            margin: 30px;
+        } -->
+    </style>
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="fixed-top">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a href="index.html" class="logo"><img src="assets/img/logo_1_w.png" alt="" class="img-fluid"></a>
+        </div>
+    </header><!-- End Header -->
+
+
+    <div class="hero hero-single route " style="background-image: url(assets/img/background_light2.jpg); height:30vh">
+        <div class="overlay-mf"></div>
+        <div class="hero-content display-table">
+            <div class="table-cell">
+                <div class="container">
+                    <h2 class="hero-title mb-4">Projects & Research</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <main id="main">
+
+        <!-- ======= Blog Single Section ======= -->
+        <section class="blog-wrapper sect-pt4" id="blog">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+
+
+
+
+                        <div class="post-box">
+                            <div class="post-meta">
+                                <h1 class="article-title" id="1">TSVD & LLM: truncated singular values decomposition and
+                                    large language models</h1>
+                                <ul>
+                                    <li>
+                                        <span class="bi bi-person"></span>
+                                        <a href="#">S. Delahaies</a>
+                                    </li>
+                                    <li>
+                                        <span class="bi bi-tag"></span>
+                                        <a href="#">Data Science/Engineering</a>
+                                    </li>
+                                    <li>
+                                        <span class="bi bi bi-calendar"></span>
+                                        13-01-2025
+                                    </li>
+                                </ul>
+                                <br></br>
+                                <figure>
+                                    <img class="w-100" src="assets/img/tsvd2.jpg">
+                                    <figcaption><i>Hey Chatgpt, please illustrate the tsvd approximation of a cat and a
+                                            dog</i></figcaption>
+                                </figure>
+                            </div>
+
+                            <article>
+                                <p>
+                                    During my postdoctoral research, I have had extensive experience with Truncated
+                                    Singular Value Decomposition (TSVD) as a powerful yet simple tool for regularizing
+                                    complex problems in the context of Data Assimilation. Over a decade ago, TSVD became
+                                    an indispensable part of my workflow for addressing the ill-posed nature of these
+                                    problems, where small perturbations in data could lead to large, unstable solutions.
+                                    By selectively truncating the smaller singular values, TSVD not only reduced
+                                    numerical noise but also highlighted the most influential components of the system,
+                                    leading to more stable and interpretable results. The elegance and efficacy of TSVD
+                                    left a lasting impression on me, and I am particularly excited to see its resurgence
+                                    in modern machine learning contexts, such as its application in the LASER method for
+                                    optimizing large language models.
+                                </p>
+                                <p>
+                                    In the rapidly evolving field of large language models (LLMs), balancing performance
+                                    with computational efficiency remains a pivotal challenge. Recent work on LASER
+                                    (Layer-Selective Rank Reduction) provides a promising method to enhance model
+                                    accuracy and generalizability while simultaneously reducing memory consumption.
+                                    LASER applies Truncated Singular Value Decomposition (TSVD) to the weight matrices
+                                    of selected transformer layers, allowing for significant rank reductions without
+                                    compromising model performance but also without the need for further fine-tuning,
+                                    making it more efficient for large language models.
+                                </p>
+                                <p>
+                                    The authors of the original study demonstrate that LASER achieves enhanced reasoning
+                                    capabilities, especially in tasks requiring logical and mathematical reasoning.
+                                    Surprisingly, applying aggressive rank reduction (as low as 1% of the original rank)
+                                    not only preserves accuracy but sometimes improves generalization across benchmarks.
+                                    This is attributed to the method’s ability to discard less informative parameters,
+                                    which may act as noise, and focus computational capacity on the most salient
+                                    features of the input. Furthermore, LASER offers substantial memory gains, with some
+                                    layers achieving compression ratios up to 100:1, making it a compelling approach for
+                                    deploying LLMs in resource-constrained environments.
+                                </p>
+                                <p>
+                                    While LASER has proven its efficacy, further exploration of its interaction with
+                                    other optimization techniques and extensions remains largely unexplored. This
+                                    article will seek to address these gaps and extend the research on LASER through the
+                                    following key questions:
+                                </p>
+
+                                <h5>Research Questions</h5>
+                                <ol>
+                                    <li>
+                                        <p><b>How can LASER be composed with quantization techniques?</b></p>
+                                        Quantization is a popular method for reducing the memory and computational costs
+                                        of LLMs, applied by reducing the bit-width of parameters. Composing LASER with
+                                        quantization could yield a highly efficient hybrid optimization strategy.
+                                        <ul>
+                                            <li>
+                                                <b>Method:</b> We will investigate whether quantization can be applied
+                                                directly to the reduced-rank matrices generated by LASER without
+                                                significant loss of accuracy. Additionally, we will explore whether
+                                                LASER’s rank-reduction process affects the efficacy of quantization.
+                                            </li>
+                                            <li>
+                                                <b>Hypothesis:</b> Combining LASER with quantization will amplify memory
+                                                savings, with minimal degradation in performance.
+                                            </li>
+                                            <li>
+                                                <b>Potential Outcomes:</b> A hybrid LASER-quantization approach that
+                                                achieves state-of-the-art compression ratios while maintaining or
+                                                improving reasoning accuracy.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <br></br>
+                                    <li>
+                                        <p><b>What is the effect of LoRA and QLoRA fine-tuning methods on TSVD? Is LASER
+                                                more effective in this context?</b></p>
+                                        LoRA (Low-Rank Adaptation) and QLoRA (Quantized LoRA) are efficient fine-tuning
+                                        methods that have been shown to enhance task-specific performance in LLMs with
+                                        very small datasets. However, their interaction with rank-reduction techniques
+                                        like LASER remains unclear.
+
+                                        <ul>
+                                            <li>
+                                                <b>Method:</b> We will analyze how fine-tuning with LoRA and QLoRA
+                                                modifies the singular value distribution of weight matrices and assess
+                                                whether LASER provides additional benefits when used before or after
+                                                fine-tuning.
+                                            </li>
+                                            <li>
+                                                <b>Hypothesis:</b> Fine-tuning with LoRA/QLoRA introduces additional
+                                                rank structures that may complement LASER, potentially making LASER even
+                                                more effective post-fine-tuning.
+                                            </li>
+                                            <li>
+                                                <b>Potential Outcomes:</b> Insights into whether LASER and LoRA/QLoRA
+                                                are additive, or whether one subsumes the benefits of the other.
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <br></br>
+                                    <li>
+                                        <p><b>Can we define a corpus-specific LASER?</b></p>
+
+                                        Transformer models are typically trained on diverse corpora, but different tasks
+                                        may demand different rank structures. A corpus-specific LASER could tailor rank
+                                        reduction to maximize efficiency and performance for a given domain.
+
+                                        <ul>
+                                            <li>
+                                                <b>Method:</b> We may try to develop adaptive rank-selection algorithms
+                                                that analyze corpus-specific patterns (e.g., syntactic and semantic
+                                                distributions) to identify optimal layers and ranks for reduction.
+                                            </li>
+                                            <li>
+                                                <b>Hypothesis:</b> Task-specific corpora have unique characteristics
+                                                that can be exploited to fine-tune rank-reduction strategies, resulting
+                                                in better trade-offs between accuracy and memory savings.
+                                            </li>
+                                            <li>
+                                                <b>Potential Outcomes:</b> The development of corpus-aware LASER
+                                                techniques that outperform generic rank-reduction methods on specialized
+                                                benchmarks.
+                                            </li>
+                                            The question as to whether it is feasible to define a corpus-specific LASER,
+                                            tailoring the method to specific datasets seems interesting. However, this
+                                            would likely require continued pre-training on the targeted corpus, which
+                                            may be time-consuming and could take a while to fully address.
+                                        </ul>
+                                    </li>
+                                </ol>
+
+                                <h5>A very fisrt look at truncated singular value decomposition</h5>
+                                <p>
+                                    TSVD is a dimensionality reduction technique that approximates a matrix by retaining
+                                    only its most significant components. The decomposition of a weight matrix <span
+                                        class="math">W</span> can be expressed as:
+                                </p>
+                                <div class="math">
+                                    \[ W = U \Sigma V^T \]
+                                </div>
+                                <p>
+                                    Where:
+                                </p>
+                                <ul>
+                                    <li>\(U\)</span> and \(V\) are unitary matrices.</li>
+                                    <li>\(\Sigma\) is a diagonal matrix containing the singular values in descending
+                                        order.</li>
+                                </ul>
+                                <p>
+                                    By retaining only the top \(k\) singular values and corresponding vectors, we obtain
+                                    a rank-\(k\) approximation:
+                                </p>
+                                <div class="math">
+                                    \[ W \approx U_k \Sigma_k V_k^T \]
+                                </div>
+                                <p>
+                                    Here, \(k\) is much smaller than the rank of \(W\), significantly reducing the size
+                                    of the representation.
+                                </p>
+                                The image below provides an example of rank-\(k\) approximation
+                                <figure>
+                                    <img class="h-100" src="assets/img/cute_cats.png">
+                                </figure>
+                                The original image is displayed on the left, the plot in the middle displays a rank-5
+                                approximation and the plot on the right a rank-20 approximation. We see that while for
+                                k=5 the approximation is very poor but still allows to identify a cat, for k=20 it
+                                allows for an accurate identification of a fishpocket, with only ~3.5% and ~14% of the
+                                original respectively. The plot below displays the distribution of singular values.
+                                <figure>
+                                    <img class="h-100" src="assets/img/svd.png">
+                                </figure>
+                                <p>
+                                    The condition number of a matrix \(W\), \(\kappa(W)\), is the ratio of its largest
+                                    singular value to its smallest singular value:
+                                <div class="math">
+                                    \[ \kappa(W) = \frac{S_r}{S_0}, \quad r=rank(W). \]
+                                </div>
+
+                                It serves as a measure of the matrix's sensitivity to numerical errors and indicates the
+                                dispersion of its singular values. A high condition number suggests that the matrix is
+                                ill-conditioned, meaning small perturbations can lead to large variations in the model's
+                                output. In the context of LASER and TSVD, understanding the condition number is crucial
+                                because it can highlight how well the low-rank approximation represents the original
+                                matrix. If the condition number is large, reducing the rank through techniques like TSVD
+                                or LASER could help mitigate potential issues caused by ill-conditioning while
+                                maintaining accuracy.
+                                </p>
+
+                                <h5>SVD for Mistral-7B-Instruct-v0.2</h5>
+
+                                <p>
+                                    Before looking at any approximation, we take a look at the condition numbers and
+                                    singular values distributions of each linear layer of Mistral-7B-Instruct-v0.2. The
+                                    model is composed of 32 transformer layers, each containing several linear layers:
+                                </p>
+                                <ul>
+                                    <li>self_attn: MistralAttention
+                                        <ul>
+                                            <li>q_proj: Linear (in_features=4096, out_features=4096, bias=False)</li>
+                                            <li>k_proj: Linear (in_features=4096, out_features=1024, bias=False)</li>
+                                            <li>v_proj: Linear (in_features=4096, out_features=1024, bias=False)</li>
+                                            <li>o_proj: Linear (in_features=4096, out_features=4096, bias=False)</li>
+                                        </ul>
+                                    </li>
+                                    <li>mlp: MistralMLP
+                                        <ul>
+                                            <li>gate_proj: Linear (in_features=4096, out_features=14336, bias=False)
+                                            </li>
+                                            <li>up_proj: Linear (in_features=4096, out_features=14336, bias=False)</li>
+                                            <li>down_proj: Linear (in_features=14336, out_features=4096, bias=False)
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                Below, we provide visualisations of the condition numbers and singular values for each
+                                of these
+                                layers.
+                                <iframe src="condition_numbers.html" height="600" width="100%"
+                                    title="Iframe Example"></iframe>
+                                <iframe src="svds.html" height="600" width="100%" title="Iframe Example"></iframe>
+                                <p>
+                                    Building upon the foundational work on LASER and its application to the Mistral-7B
+                                    model, as detailed in the insightful article on <a
+                                        href="https://huggingface.co/blog/fractalego/mistral-laser-svd">The LASER
+                                        technique: Evaluating SVD compression </a>, I have begun extending this research
+                                    to the SmolLM2 model family. Initially, my focus will be on quantization techniques,
+                                    with further exploration of Lora finetuning to follow. However, before sharing any
+                                    conclusive findings, I will be conducting a comprehensive evaluation of the large
+                                    language model (LLM) performance to ensure the results are both reliable and
+                                    accurate. I look forward to sharing my insights and results as soon as I have robust
+                                    data to report.
+                                </p>
+                                <p>
+                                    You can find the code and additional resources for this project on my GitHub repository:
+                                    <a href="https://github.com/sdelahaies/llm-tsvd-intro" target="_blank">sdelahaies/laser-llm</a>.
+                                
+                                </p>
+
+                                
+                                <h5>LASER & Quantization</h5>
+                                to appear ...
+                                <br></br>
+                                <h5>LASER & Lora</h5>
+                                to appear ...
+                                <br></br>
+                                <h4>Links</h4>
+                                <ul>
+                                    <li><a href="https://arxiv.org/abs/2312.13558">The Truth is in There: Improving
+                                            Reasoning in Language Models with Layer-Selective Rank Reduction (LASER)</a>
+                                    </li>
+                                    <li><a href="https://huggingface.co/blog/fractalego/mistral-laser-svd">The LASER
+                                            technique: Evaluating SVD compression </a></li>
+                                    <li><a href="https://github.com/sdelahaies/laser-llm">sdelahaies/laser-llm</a></li>
+                                </ul>
+
+                            </article>
+
+
+
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-4">
+
+
+
+                        <div class="widget-sidebar">
+                            <h5 class="sidebar-title">Recent Post</h5>
+                            <div class="sidebar-content">
+                                <ul class="list-sidebar">
+                                    <li>
+                                        <a href="laser-llm.html">TSVD & LLM: truncated singular values decomposition and large language models</a>
+                                    </li>
+                                    <li>
+                                        <a href="flowizer-ui.html">Flowizer-UI: A Low-Code Interface for Workflow
+                                            Automation</a>
+                                    </li>
+                                    <li>
+                                        <a href="flowizer.html">Flowizer: Agentic Workflow Automation</a>
+                                    </li>
+                                    <li>
+                                        <a href="iassistant.html">IAssistant: a versatile Voice Assistant</a>
+                                    </li>
+                                    <li>
+                                        <a href="deepwars.html">Object Localization in Space... kinda</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts2.html">Is ChatGPT ruining my Data Engineer career
+                                            before it even started? TAKE 2</a>
+                                    </li>
+                                    <li>
+                                        <a href="chatgpt-prompts.html">Is Chatgpt ruining my Data Engineer career before
+                                            it even started?</a>
+                                    </li>
+
+                                    <li>
+                                        <a href="enpgf-lab.html">Online EnPGF training for temporal point processes</a>
+                                    </li>
+                                    <li>
+                                        <a href="travelplanner.html">Travel planner</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="widget-sidebar widget-tags">
+                            <h5 class="sidebar-title">Tags</h5>
+                            <div class="sidebar-content">
+                                <ul>
+                                    <li>
+                                        <a href="#">ReactFlow</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Next.js</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Typescript</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Flowizer</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">CORS</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- End Blog Single Section -->
+
+    </main><!-- End #main -->
+
+
+    <!-- ======= Footer ======= -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="copyright-box">
+                        <p class="copyright">&copy; <strong>2025 S. delahaies</strong></p>
+                        <!--
+            <div class="credits">
+              conçu avec <a href="https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/"> DevFolio</a>, hébergé par <a href="https://github.com/">Github</a>  
+            </div>
+            -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer><!-- End  Footer -->
+
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
+
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/glightbox.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/typed.min.js"></script>
+    <script src="assets/js/ob_mail.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="assets/js/tl_script.js"></script>
+    <!-- <script src="assets/js/gallery.js"></script> -->
+    <!-- <script src="assets/js/carrousel.js"></script> -->
+
+    <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
