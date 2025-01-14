@@ -145,24 +145,24 @@
                                 </p>
                                 <p>
                                     In the rapidly evolving field of large language models (LLMs), balancing performance
-                                    with computational efficiency remains a pivotal challenge. Recent work on LASER
-                                    (Layer-Selective Rank Reduction) provides a promising method to enhance model
+                                    with computational efficiency remains a pivotal challenge. Recent work on <a href="https://arxiv.org/abs/2312.13558">Layer-Selective Rank Reduction (LASER)</a> provides a promising method to enhance model
                                     accuracy and generalizability while simultaneously reducing memory consumption.
                                     LASER applies Truncated Singular Value Decomposition (TSVD) to the weight matrices
                                     of selected transformer layers, allowing for significant rank reductions without
                                     compromising model performance but also without the need for further fine-tuning,
-                                    making it more efficient for large language models.
+                                    making it more efficient for large language models. 
                                 </p>
                                 <p>
-                                    The authors of the original study demonstrate that LASER achieves enhanced reasoning
-                                    capabilities, especially in tasks requiring logical and mathematical reasoning.
+                                    The authors of the original study demonstrate that LASER can achieve enhanced
+                                    capabilities, especially on question answering tasks.
                                     Surprisingly, applying aggressive rank reduction (as low as 1% of the original rank)
                                     not only preserves accuracy but sometimes improves generalization across benchmarks.
                                     This is attributed to the method’s ability to discard less informative parameters,
                                     which may act as noise, and focus computational capacity on the most salient
                                     features of the input. Furthermore, LASER offers substantial memory gains, with some
                                     layers achieving compression ratios up to 100:1, making it a compelling approach for
-                                    deploying LLMs in resource-constrained environments.
+                                    deploying LLMs in resource-constrained environments. A <a href=https://huggingface.co/blog/fractalego/mistral-laser-svd">community article at 
+                                    HuggingFace by Alberto Cetoli</a> provides further exploration with Mistral 7B
                                 </p>
                                 <p>
                                     While LASER has proven its efficacy, further exploration of its interaction with
