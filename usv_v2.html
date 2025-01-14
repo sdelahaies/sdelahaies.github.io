@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Decomposition Visualization</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0px;
+            padding: 0;
+            text-align: left;
+            background-color: #e7e8e1;
+        }
+        .slider-container {
+            margin: 20px;
+        }
+        .output-container {
+            margin: 30px;
+        }
+        .matrix-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            gap: 10px;
+        }
+        .matrix {
+            display: inline-block;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+        }
+        .matrix.w {
+            background-color: #8e44ad;
+        }
+        .matrix.u {
+            background-color: #3498db;
+        }
+        .matrix.s {
+            background-color: #e74c3c;
+        }
+        .matrix.v {
+            background-color: #2ecc71;
+        }
+    </style>
+</head>
+<body>
+    <div style="backgound-color:#776b36">
+    <b>Truncated Singular Value Decomposition</b>
+    <p>Use the sliders to adjust values of m, n, and r, and see the matrix decomposition below:</p>
+
+    <!-- Sliders for m, n, and r -->
+    <div class="slider-container">
+        <label for="mSlider">m:</label>
+        <input type="range" id="mSlider" min="16" max="4096" step="8" value="2048">
+        <span id="mValue">10</span>
+    </div>
+
+    <div class="slider-container">
+        <label for="nSlider">n:</label>
+        <input type="range" id="nSlider" min="16" max="4096" step="8" value="2048">
+        <span id="nValue">10</span>
+    </div>
+
+    <div class="slider-container">
+        <label for="rSlider">r:</label>
+        <input type="range" id="rSlider" min="1" max="4096" step="1" value="228">
+        <span id="rValue">5</span>
+    </div>
+
+    <!-- Output for values -->
+    <div class="output-container">
+        <p><strong>m * r + r + n * r = <span id="result1">150</span></strong></p>
+        <p><strong>m * n = <span id="result2">100</span></strong></p>
+        <p><strong>r limit = <span id="result3">100</span></strong></p>
+        <p><strong>shrinkage percentage: <span id="percentage">150.00%</span></strong></p>
+    </div>
+
+    <!-- Matrix representation -->
+    <div class="matrix-container">
+        <div id="matrixW" class="matrix w">W</div>
+        <div class="matrix-symbol">~</div>
+        <div id="matrixU" class="matrix u">U<sub>r</sub></div>
+        <div id="matrixS" class="matrix s">S<sub>r</sub></div>
+        <div id="matrixV" class="matrix v">V<sub>r</sub><sup>T</sup></div>
+    </div>
+    </div>
+    <script>
+        // Function to update the displayed values and rectangles
+        function updateValues() {
+            // Get the values from the sliders
+            let m = parseInt(document.getElementById("mSlider").value);
+            let n = parseInt(document.getElementById("nSlider").value);
+            let r = parseInt(document.getElementById("rSlider").value);
+
+            // Calculate the results
+            let result1 = m * r + r + n * r;
+            let result2 = m * n;
+            let result3 = Math.round(result2/(m+n+1));
+            let percentage = (result1 / result2) * 100;
+
+            // Update the displayed values
+            document.getElementById("mValue").textContent = m;
+            document.getElementById("nValue").textContent = n;
+            document.getElementById("rValue").textContent = r;
+            
+
+            document.getElementById("result1").textContent = result1;
+            document.getElementById("result2").textContent = result2;
+            document.getElementById("result3").textContent = result3;
+            document.getElementById("percentage").textContent = percentage.toFixed(2) + "%";
+
+            // Update the sizes of the rectangles representing W, U_r, S_r, and V_r^T
+            document.getElementById("matrixW").style.width = 0.01*(n * 10) + "px";
+            document.getElementById("matrixW").style.height = 0.01*(m * 10) + "px";
+
+            document.getElementById("matrixU").style.width = 0.01*(r * 10) + "px";
+            document.getElementById("matrixU").style.height = 0.01*(m * 10) + "px";
+
+            document.getElementById("matrixS").style.width = 0.01*(r * 10) + "px";
+            document.getElementById("matrixS").style.height = 0.01*(r * 10) + "px";
+
+            document.getElementById("matrixV").style.width = 0.01*(n * 10) + "px";
+            document.getElementById("matrixV").style.height = 0.01*(r * 10) + "px";
+        }
+
+        // Attach the update function to slider input events
+        document.getElementById("mSlider").addEventListener("input", updateValues);
+        document.getElementById("nSlider").addEventListener("input", updateValues);
+        document.getElementById("rSlider").addEventListener("input", updateValues);
+
+        // Call the updateValues initially to set the default state
+        updateValues();
+    </script>
+
+</body>
+</html>

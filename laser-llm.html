@@ -362,7 +362,12 @@
                                 
                                 </p>
 
-                                
+                                <b>remark:</b>
+                                <p>Whereas using tsvd might always be beneficial in order to increase the performance of a model, depending on the dimension of the matrix and truncation rank, using \(U_r\), \(\Sigma_r\), and \(V_r\) separately can require more parameters than using the product \(U \Sigma V^T\). Indeed the individual matrices \(U\) and \(V\) are typically large and dense, while the product can be stored more compactly, especially when the rank \(r\) is much smaller than the dimensions of the original matrix. The widget below allows to play with the matrix dimensions and truncation rank.
+                                </p>
+                                <iframe src="usv_v2.html" height="700" width="100%" title="Iframe Example"></iframe>
+
+
                                 <h5>LASER & Quantization</h5>
                                 to appear ...
                                 <br></br>
@@ -380,7 +385,7 @@
                                 </ul>
 
                             </article>
-
+r*(m+n+1)=m*n
 
 
 
